@@ -1,0 +1,49 @@
+# What
+
+Simple and free sport app with a focus on keeping it healthy.
+
+## Versie
+
+### 0.1.0
+
+eerste release met minimal functionaliteit
+
+- berekenen van maximale harstlag op basis van leeftijd (2 methods)
+- visualisatie van de harstlagzones op basis van input reken tool
+- links naar algemene informatie
+
+## Bronnen
+
+### Over Sporten
+
+Heel duidelijke en beknopte info van mantel.com specifiek voor fietsers
+https://www.mantel.com/blog/trainingsschema-voor-fietsers?
+
+Ook voor fietsers
+https://www.bicycling.com/nl/training/a28394698/trainen-op-hartslag/
+
+Fondo App heeft deze website, ook heel duidelijk
+https://kennis.knwufondo.nl/artikel/maximale-hartslag-bepalen-fietsen
+
+Info rond de verschillende zones van Garmin
+https://www.garmin.com/nl-BE/blog/hartslagzones/
+
+Nog niet verder bekeken
+https://zoluko.nl/blogs/blogs/hartslagzones-wat-is-het-en-hoe-kun-je-ze-berekenen
+
+### Technische Info
+
+Alles over ontwikkelen van android apps met compose
+https://developer.android.com/compose
+
+Creating a theme for the app
+https://developer.android.com/codelabs/jetpack-compose-theming#0
+
+generated one with
+https://material-foundation.github.io/material-theme-builder/
+
+used this image to generate the colors
+https://t3.ftcdn.net/jpg/05/13/76/12/240_F_513761212_i3z6vHUNV0bQ8pjkBGO3yrpLg8zs4mFK.jpg
+
+kotlin vs compose version
+https://developer.android.com/jetpack/androidx/releases/compose-kotlin

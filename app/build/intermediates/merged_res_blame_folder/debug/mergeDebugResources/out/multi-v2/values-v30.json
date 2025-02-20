@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "be.hcpl.android.sportapp-mergeDebugResources-55:/values-v30/values-v30.xml",
+            "map": [
+                {
+                    "source": "/Users/hcpl/.gradle/caches/8.9/transforms/d2263520b3aa905ab4280daf640d514b/transformed/material3-release/res/values-v30/values-v30.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "72",
+                        "endOffsets": "123"
+                    }
+                }
+            ]
+        }
+    ]
+}
