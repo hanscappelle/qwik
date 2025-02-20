@@ -1,2 +1,0 @@
-be.hcpl.android.sportapp.test:style/WhiteBackgroundTheme = 0x7f010001
-be.hcpl.android.sportapp.test:style/WhiteBackgroundDialogTheme = 0x7f010000

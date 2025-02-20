@@ -1,3 +1,0 @@
-be.hcpl.android.sportapp.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

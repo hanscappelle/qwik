@@ -1,6 +1,0 @@
-be.hcpl.android.sportapp.test.app-core-1.6.1-0 /Users/hcpl/.gradle/caches/8.9/transforms/23ee4fa8552226e839d3b49d2b3de001/transformed/core-1.6.1/res
-be.hcpl.android.sportapp.test.app-tracing-1.2.0-1 /Users/hcpl/.gradle/caches/8.9/transforms/299ca8a3bc3a136b8557824db65b634d/transformed/tracing-1.2.0/res
-be.hcpl.android.sportapp.test.app-androidTest-2 /Users/hcpl/Development/SportApp/app/build/generated/res/resValues/androidTest/debug
-be.hcpl.android.sportapp.test.app-mergeDebugAndroidTestResources-3 /Users/hcpl/Development/SportApp/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
-be.hcpl.android.sportapp.test.app-mergeDebugAndroidTestResources-4 /Users/hcpl/Development/SportApp/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
-be.hcpl.android.sportapp.test.app-debugAndroidTest-5 /Users/hcpl/Development/SportApp/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources
