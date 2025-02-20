@@ -51,9 +51,15 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.ui.text.google.fonts)
+    //implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.android)
+
+    // tools
     implementation(libs.androidx.ui.tooling.preview.android)
+    debugImplementation(libs.androidx.ui.tooling)
+
+    // test dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    debugImplementation(libs.androidx.ui.tooling)
 }
