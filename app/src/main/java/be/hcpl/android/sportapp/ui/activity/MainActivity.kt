@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import be.hcpl.android.sportapp.ui.model.OverviewUiModel
 import be.hcpl.android.sportapp.ui.screen.StepOverviewScreen
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 import be.hcpl.android.sportapp.ui.theme.AppTypography
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppTheme {
-                StepOverviewScreen()
+                StepOverviewScreen(OverviewUiModel(emptyList()))
             }
 
         }

@@ -9,13 +9,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import be.hcpl.android.sportapp.ui.model.OverviewUiModel
+import be.hcpl.android.sportapp.ui.model.StepItemUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 import be.hcpl.android.sportapp.ui.theme.AppTypography
 
 // TODO literals
 
 @Composable
-fun StepOverviewScreen() {
+fun StepOverviewScreen(model: OverviewUiModel) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = Modifier
@@ -32,6 +34,11 @@ fun StepOverviewScreen() {
                 text = "Volg onderstaande stappenplan om gezond en verantwoord te sporten op basis van je hartslag."
             )
         }
+        model.steps.forEach {
+            item {
+                StepItem(model = it)
+            }
+        }
     }
 }
 
@@ -39,6 +46,14 @@ fun StepOverviewScreen() {
 @Preview(showBackground = true)
 fun StepOverviewScreenPreview() {
     AppTheme {
-        StepOverviewScreen()
+        StepOverviewScreen(
+            model = OverviewUiModel(
+                steps = listOf(
+                    StepItemUiModel(1, "step1", "description", true),
+                    StepItemUiModel(2, "step2", "description", false),
+                    StepItemUiModel(3, "step3", "description", false),
+                )
+            )
+        )
     }
 }
