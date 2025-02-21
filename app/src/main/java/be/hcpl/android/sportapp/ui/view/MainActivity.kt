@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Observer
 import be.hcpl.android.sportapp.ui.screen.StepOverviewScreen
 import be.hcpl.android.sportapp.ui.theme.AppTheme
@@ -32,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier.padding(innerPadding),
                     ) {
-                        StepOverviewScreen(uiState.overview, onSelect = { viewModel.onSelect() })
+                        StepOverviewScreen(uiState.overview, onSelect = { id -> viewModel.onSelect(id) })
                     }
                 }
             }

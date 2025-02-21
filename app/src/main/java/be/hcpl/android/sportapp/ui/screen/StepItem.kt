@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import be.hcpl.android.sportapp.domain.model.StepPosition
 import be.hcpl.android.sportapp.ui.model.StepItemUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 import be.hcpl.android.sportapp.ui.theme.AppTypography
@@ -81,7 +82,6 @@ fun StepItemPreview1() {
     AppTheme {
         StepItem(
             model = StepItemUiModel(
-                step = 0,
                 label = "Bepaal je maximale harstlag",
                 description = "Om gezond te sporten is het van cruciaal belang je harstlag te volgen. Hier bepalen we eerst je maximale harstlag.",
                 completed = false,
@@ -96,7 +96,6 @@ fun StepItemPreview2() {
     AppTheme {
         StepItem(
             model = StepItemUiModel(
-                step = 0,
                 label = "Bepaal je maximale harstlag",
                 description = "Om gezond te sporten is het van cruciaal belang je harstlag te volgen. Hier bepalen we eerst je maximale harstlag.",
                 completed = true,

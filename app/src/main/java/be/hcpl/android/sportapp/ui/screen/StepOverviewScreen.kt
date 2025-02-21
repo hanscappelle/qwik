@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import be.hcpl.android.sportapp.domain.model.StepPosition
 import be.hcpl.android.sportapp.ui.model.OverviewUiModel
 import be.hcpl.android.sportapp.ui.model.StepItemUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
@@ -19,7 +20,7 @@ import be.hcpl.android.sportapp.ui.theme.AppTypography
 @Composable
 fun StepOverviewScreen(
     model: OverviewUiModel?,
-    onSelect: () -> Unit,
+    onSelect: (StepPosition) -> Unit,
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -39,7 +40,7 @@ fun StepOverviewScreen(
         }
         model?.steps?.forEach {
             item {
-                StepItem(model = it, onSelect = { onSelect.invoke() })
+                StepItem(model = it, onSelect = { onSelect.invoke(it.step) })
             }
         }
     }
@@ -52,9 +53,9 @@ fun StepOverviewScreenPreview() {
         StepOverviewScreen(
             model = OverviewUiModel(
                 steps = listOf(
-                    StepItemUiModel(1, "step1", "description", true),
-                    StepItemUiModel(2, "step2", "description", false),
-                    StepItemUiModel(3, "step3", "description", false),
+                    StepItemUiModel(StepPosition.NOT_SET, "step1", "description", true),
+                    StepItemUiModel(StepPosition.MAX_HART_RATE, "step2", "description", false),
+                    StepItemUiModel(StepPosition.VISUALISE_ZONES, "step3", "description", false),
                 ),
             ),
             onSelect = {},
