@@ -2,12 +2,17 @@ package be.hcpl.android.sportapp.ui.screen
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
@@ -28,25 +33,32 @@ import be.hcpl.android.sportapp.ui.theme.tertiaryLight
 @Composable
 fun StepItem(
     model: StepItemUiModel,
+    onSelect: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
+    Surface(
+        onClick = { onSelect() }
+    ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(4.dp),
         modifier = modifier
             .fillMaxWidth()
             .dashedBorder(1.dp, 16.dp, color = primaryDark)
             .padding(8.dp)
+        // TODO fix selectable
+           // .clickable(enabled = true, onClick = {onSelect()})
     ) {
-        Text(
-            style = AppTypography.titleMedium,
-            text = model.label,
-            color = tertiaryLight,
-        )
-        Text(
-            style = AppTypography.bodyMedium,
-            text = model.description,
-            color = primaryLight
-        )
+            Text(
+                style = AppTypography.titleMedium,
+                text = model.label,
+                color = tertiaryLight,
+            )
+            Text(
+                style = AppTypography.bodyMedium,
+                text = model.description,
+                color = primaryLight
+            )
+        }
     }
 
 }

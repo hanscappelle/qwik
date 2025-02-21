@@ -51,3 +51,6 @@ https://developer.android.com/jetpack/androidx/releases/compose-kotlin
 koin for dependency injection
 https://insert-koin.io/docs/quickstart/android-viewmodel
 https://insert-koin.io/docs/quickstart/android-compose/
+
+about MVVM and ui state setup
+https://medium.com/@MrAndroid/android-architecture-with-mvvm-and-uistate-f29aa5494465
