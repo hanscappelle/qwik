@@ -49,10 +49,17 @@ class MainViewModel(
 
     fun onSelect(step: StepPosition) {
         // TODO handle step selection here
-        Toast.makeText(context, "selected step $step", Toast.LENGTH_LONG).show()
+        //Toast.makeText(context, "selected step $step", Toast.LENGTH_LONG).show()
+        _uiState.postValue(
+            _uiState.value?.copy(
+                overview = _uiState.value?.overview?.copy(
+                    steps = _uiState.value?.overview?.steps?.map { it -> if (it.step == step) it.copy(completed = true) else it }.orEmpty()
+                )
+            )
+        )
     }
 }
 
 data class UiState(
-    val overview: OverviewUiModel,
+    val overview: OverviewUiModel?,
 )

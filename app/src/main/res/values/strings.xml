@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">SportApp</string>
     <string name="about_label">Over Deze App</string>
-    <string name="about_description">Meer info over deze App maar ook over privacy en de verschillende referenties gebruikt.</string>
+    <string name="about_description">Meer info over deze App maar ook over privacy en gebruikte referenties.</string>
     <string name="max_label">Maximum Hartslag Bepalen</string>
     <string name="zones_label">Hartslag Zones Visualiseren</string>
     <string name="max_description">Bepaal eerst en vooral je maximale hartslag. Dit kan op basis van een test en hartslagmeter. Of je kan op basis van je leeftijd een schatting maken.</string>
     <string name="zones_description">Na het bepalen van je maximale harstlag kun je de verschillende zones bekijken. Dit zijn de zones die belangrijk zijn voor het samenstellen van een training.</string>
     <string name="welcome_title">Welkom Sporter</string>
     <string name="welcome_text">Volg onderstaande stappenplan om gezond en verantwoord te sporten op basis van je hartslag.</string>
+    <string name="content_description_checked">task completed</string>
 </resources>

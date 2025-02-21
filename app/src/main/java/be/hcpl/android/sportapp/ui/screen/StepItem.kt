@@ -1,19 +1,31 @@
 package be.hcpl.android.sportapp.ui.screen
 
+import be.hcpl.android.sportapp.R
+
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Check
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.PaintingStyle
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -30,27 +42,47 @@ fun StepItem(
     onSelect: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-        modifier = modifier
-            .fillMaxWidth()
-            .dashedBorder(1.dp, 16.dp, color = primaryDark)
-            .padding(8.dp)
-            .clickable(
-                onClick = { onSelect() }
+    Box {
+        CompletionIndicator(
+            model.completed,
+            Modifier
+                .align(Alignment.BottomEnd)
+                .size(120.dp)
+                .alpha(0.30f)
+        )
+        Column(
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            modifier = modifier
+                .fillMaxWidth()
+                .dashedBorder(1.dp, 16.dp, color = primaryDark)
+                .padding(8.dp)
+                .clickable(
+                    onClick = { onSelect() }
+                )
+        ) {
+            Text(
+                style = AppTypography.titleLarge,
+                text = model.label,
+                color = primaryLight,
             )
-    ) {
-        Text(
-            style = AppTypography.titleMedium,
-            text = model.label,
-            color = tertiaryLight,
-        )
-        Text(
-            style = AppTypography.bodyMedium,
-            text = model.description,
-            color = primaryLight
-        )
+            Text(
+                style = AppTypography.bodyLarge,
+                text = model.description,
+                color = tertiaryLight,
+            )
+        }
     }
+}
+
+@Composable
+fun CompletionIndicator(completed: Boolean, modifier: Modifier) {
+    if (completed)
+        Icon(
+            Icons.Outlined.Check,
+            modifier = modifier,
+            tint = Color.Green,
+            contentDescription = stringResource(id = R.string.content_description_checked),
+        )
 }
 
 fun Modifier.dashedBorder(width: Dp, radius: Dp, color: Color) =
