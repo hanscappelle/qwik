@@ -15,8 +15,6 @@ import be.hcpl.android.sportapp.ui.model.StepItemUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 import be.hcpl.android.sportapp.ui.theme.AppTypography
 
-// TODO literals
-
 @Composable
 fun StepOverviewScreen(
     model: OverviewUiModel?,
@@ -31,11 +29,11 @@ fun StepOverviewScreen(
         item {
             Text(
                 style = AppTypography.headlineLarge,
-                text = "Welkom sporter",
+                text = model?.welcomeTitle.orEmpty(),
             )
             Text(
                 style = AppTypography.bodyLarge,
-                text = "Volg onderstaande stappenplan om gezond en verantwoord te sporten op basis van je hartslag."
+                text = model?.welcomeText.orEmpty()
             )
         }
         model?.steps?.forEach {
