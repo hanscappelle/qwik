@@ -8,14 +8,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import be.hcpl.android.sportapp.ui.model.OverviewUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTypography
-import be.hcpl.android.sportapp.ui.view.MainViewModel
-
-// TODO literals
 
 @Composable
-fun StepOverviewScreen(
-    viewModel: MainViewModel
+fun LiveDataStepOverviewScreen(
+    model: OverviewUiModel?,
+    onSelect: () -> Unit,
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -30,32 +29,13 @@ fun StepOverviewScreen(
             )
             Text(
                 style = AppTypography.bodyLarge,
-                text = "Volg onderstaande stappenplan om gezond en verantwoord te sporten op basis van je hartslag."
+                text = "Volg onderstaande stappenplan om gezond en verantwoord te sporten op basis van je hartslag.",
             )
         }
-        //model?.steps?.forEach {
-        viewModel.uiState.value.overview.steps.forEach {
+        model?.steps?.forEach {
             item {
-                    StepItem(model = it, onSelect = {viewModel.onSelect()})
+                StepItem(model = it, onSelect = { onSelect.invoke() })
             }
         }
     }
 }
-
-/*
-@Composable
-@Preview(showBackground = true)
-fun StepOverviewScreenPreview() {
-    AppTheme {
-        StepOverviewScreen(
-            model = OverviewUiModel(
-                steps = listOf(
-                    StepItemUiModel(1, "step1", "description", true),
-                    StepItemUiModel(2, "step2", "description", false),
-                    StepItemUiModel(3, "step3", "description", false),
-                )
-            )
-        )
-    }
-}
-*/

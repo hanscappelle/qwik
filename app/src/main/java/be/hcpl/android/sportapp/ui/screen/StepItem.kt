@@ -1,18 +1,12 @@
 package be.hcpl.android.sportapp.ui.screen
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.selection.selectable
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
@@ -36,31 +30,27 @@ fun StepItem(
     onSelect: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
-    Surface(
-        onClick = { onSelect() }
-    ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(4.dp),
         modifier = modifier
             .fillMaxWidth()
             .dashedBorder(1.dp, 16.dp, color = primaryDark)
             .padding(8.dp)
-        // TODO fix selectable
-           // .clickable(enabled = true, onClick = {onSelect()})
+            .clickable(
+                onClick = { onSelect() }
+            )
     ) {
-            Text(
-                style = AppTypography.titleMedium,
-                text = model.label,
-                color = tertiaryLight,
-            )
-            Text(
-                style = AppTypography.bodyMedium,
-                text = model.description,
-                color = primaryLight
-            )
-        }
+        Text(
+            style = AppTypography.titleMedium,
+            text = model.label,
+            color = tertiaryLight,
+        )
+        Text(
+            style = AppTypography.bodyMedium,
+            text = model.description,
+            color = primaryLight
+        )
     }
-
 }
 
 fun Modifier.dashedBorder(width: Dp, radius: Dp, color: Color) =
@@ -95,7 +85,7 @@ fun StepItemPreview1() {
                 label = "Bepaal je maximale harstlag",
                 description = "Om gezond te sporten is het van cruciaal belang je harstlag te volgen. Hier bepalen we eerst je maximale harstlag.",
                 completed = false,
-                )
+            )
         )
     }
 }
