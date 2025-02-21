@@ -3,6 +3,11 @@ package be.hcpl.android.sportapp.ui.view
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Observer
 import be.hcpl.android.sportapp.ui.screen.StepOverviewScreen
 import be.hcpl.android.sportapp.ui.theme.AppTheme
@@ -23,7 +28,13 @@ class MainActivity : ComponentActivity() {
     private fun onChangeObserved(uiState: UiState) {
         setContent {
             AppTheme {
-                StepOverviewScreen(uiState.overview, onSelect = { viewModel.onSelect() })
+                Scaffold { innerPadding ->
+                    Column(
+                        modifier = Modifier.padding(innerPadding),
+                    ) {
+                        StepOverviewScreen(uiState.overview, onSelect = { viewModel.onSelect() })
+                    }
+                }
             }
 
         }
