@@ -3,7 +3,7 @@ package be.hcpl.android.sportapp.ui.view
 import be.hcpl.android.sportapp.R
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import be.hcpl.android.sportapp.ui.Literals
+import be.hcpl.android.sportapp.ui.i18n.Literals
 
 class InfoViewModel(
     private val url: String?,

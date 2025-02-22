@@ -1,6 +1,6 @@
 package be.hcpl.android.sportapp
 
-import be.hcpl.android.sportapp.ui.Literals
+import be.hcpl.android.sportapp.ui.i18n.Literals
 import be.hcpl.android.sportapp.ui.view.InfoViewModel
 import be.hcpl.android.sportapp.ui.view.MainViewModel
 import be.hcpl.android.sportapp.ui.view.MaxRateViewModel
