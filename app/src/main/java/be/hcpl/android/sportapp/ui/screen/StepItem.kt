@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Check
+import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -42,6 +43,7 @@ fun StepItem(
     onSelect: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
+    Card(onClick = { onSelect() }) {
     Box {
         CompletionIndicator(
             model.completed,
@@ -54,11 +56,11 @@ fun StepItem(
             verticalArrangement = Arrangement.spacedBy(4.dp),
             modifier = modifier
                 .fillMaxWidth()
-                .dashedBorder(1.dp, 16.dp, color = primaryDark)
-                .padding(8.dp)
-                .clickable(
-                    onClick = { onSelect() }
-                )
+                //.dashedBorder(1.dp, 16.dp, color = primaryDark)
+                .padding(16.dp)
+                //.clickable(
+                //    onClick = { onSelect() }
+                //)
         ) {
             Text(
                 style = AppTypography.titleLarge,
@@ -71,6 +73,7 @@ fun StepItem(
                 color = tertiaryLight,
             )
         }
+    }
     }
 }
 
