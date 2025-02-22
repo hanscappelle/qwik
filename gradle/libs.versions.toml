@@ -13,6 +13,7 @@ uiTextGoogleFonts = "1.7.8"
 uiToolingPreviewAndroid = "1.7.8"
 uiTooling = "1.7.8"
 koin = "4.0.2"
+navigation = "2.8.7"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +30,7 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", vers
 koin-androidx-compose = { group = "io.insert-koin", name="koin-androidx-compose", version.ref="koin"}
 koin-android = { group = "io.insert-koin", name="koin-android", version.ref="koin"}
 compose-livedata = {group= "androidx.compose.runtime", name="runtime-livedata", version.ref="uiTooling"}
+androidx-navigation = {group= "androidx.navigation", name="navigation-compose", version.ref="navigation"}
 
 
 [plugins]

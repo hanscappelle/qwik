@@ -13,6 +13,7 @@ import be.hcpl.android.sportapp.ui.model.StepItemUiModel
 import java.lang.ref.WeakReference
 
 class InfoViewModel(
+    private val url: String?,
     private val context: Context,
 ) : ViewModel() {
 
@@ -25,7 +26,7 @@ class InfoViewModel(
     init {
         _uiState.postValue(
             UiState(
-                url = "https://www.google.be" // TODO change to param
+                url = url ?: "https://www.google.be"
             )
         )
     }

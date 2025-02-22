@@ -16,6 +16,8 @@ fun InfoViewScreen(url: String) {
 @Composable
 fun WebView(url: String) {
 
+    // TODO add a loading indication
+
     // Adding a WebView inside AndroidView
     // with layout as full screen
     AndroidView(factory = {
@@ -24,6 +26,7 @@ fun WebView(url: String) {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
+            settings.javaScriptEnabled = true
         }
     }, update = {
         it.loadUrl(url)

@@ -54,6 +54,7 @@ dependencies {
     //implementation(libs.koin.androidx.compose)
     implementation(libs.koin.android)
     implementation(libs.compose.livedata)
+    implementation(libs.androidx.navigation)
 
     // tools
     implementation(libs.androidx.ui.tooling.preview.android)
