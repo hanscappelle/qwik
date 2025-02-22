@@ -12,9 +12,11 @@ import be.hcpl.android.sportapp.ui.screen.AppScaffold
 import be.hcpl.android.sportapp.ui.screen.InfoViewScreen
 import be.hcpl.android.sportapp.ui.screen.StepOverviewScreen
 import be.hcpl.android.sportapp.ui.theme.AppTheme
+import be.hcpl.android.sportapp.ui.view.InfoViewModel.UiEvent
 import be.hcpl.android.sportapp.ui.view.InfoViewModel.UiState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import java.lang.System.exit
 
 class InfoActivity : ComponentActivity() {
 
@@ -24,13 +26,19 @@ class InfoActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val stateObserver = Observer<UiState> { state -> onChangeObserved(state) }
-        viewModel.uiState.observe(this, stateObserver)
+        viewModel.uiState.observe(this, Observer<UiState> { state -> onChangeObserved(state) })
+        viewModel.events.observe(this, Observer<UiEvent> { event -> onEvent(event) })
+    }
+
+    private fun onEvent(event: UiEvent) {
+        when (event) {
+            UiEvent.Back -> finish()
+        }
     }
 
     private fun onChangeObserved(uiState: UiState) {
         setContent {
-            AppScaffold {
+            AppScaffold(onBack = { viewModel.back() }) {
                 InfoViewScreen(uiState.url)
             }
 

@@ -17,22 +17,29 @@ class InfoViewModel(
     private val context: Context,
 ) : ViewModel() {
 
-    private val _uiState = MutableLiveData<UiState>()
-    val uiState: LiveData<UiState>
-        get() = _uiState
+    val uiState: MutableLiveData<UiState> = MutableLiveData<UiState>()
+    val events: MutableLiveData<UiEvent> = MutableLiveData<UiEvent>()
 
     // contains basic HTML formatted info
 
     init {
-        _uiState.postValue(
+        uiState.postValue(
             UiState(
                 url = url ?: "https://www.google.be"
             )
         )
     }
 
+    fun back() {
+        events.postValue(UiEvent.Back)
+    }
+
     data class UiState(
         val url: String,
     )
+
+    sealed class UiEvent {
+        data object Back : UiEvent()
+    }
 }
 

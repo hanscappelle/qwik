@@ -1,5 +1,7 @@
 package be.hcpl.android.sportapp.ui.screen
 
+import be.hcpl.android.sportapp.R
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.WindowInsets
@@ -15,25 +17,25 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.rememberNavController
+import androidx.compose.ui.res.stringResource
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
-fun AppScaffold(content: @Composable () -> Unit) {
-    val navController = rememberNavController()
+fun AppScaffold(onBack: (() -> Unit)? = null, content: @Composable () -> Unit) {
     AppTheme {
         Scaffold(
-            //contentWindowInsets = WindowInsets.systemBarsIgnoringVisibility,
             topBar = {
                 TopAppBar(
-                    title = { Text(text = "app bar title") },
+                    title = { Text(text = stringResource(R.string.title_app)) },
                     navigationIcon = {
-                        IconButton(onClick = { navController.popBackStack() }) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "Back"
-                            )
+                        onBack?.let {
+                            IconButton(onClick = { onBack() }) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                    contentDescription = stringResource(R.string.description_navigate_back)
+                                )
+                            }
                         }
                     }
                 )

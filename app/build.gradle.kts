@@ -51,10 +51,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.ui.text.google.fonts)
-    //implementation(libs.koin.androidx.compose)
     implementation(libs.koin.android)
-    implementation(libs.compose.livedata)
-    implementation(libs.androidx.navigation)
+//    implementation(libs.compose.livedata)
 
     // tools
     implementation(libs.androidx.ui.tooling.preview.android)

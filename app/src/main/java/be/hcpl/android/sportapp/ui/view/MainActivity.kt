@@ -19,7 +19,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.Modifier
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
-import androidx.navigation.compose.rememberNavController
 import be.hcpl.android.sportapp.ui.screen.AppScaffold
 import be.hcpl.android.sportapp.ui.screen.InfoViewScreen
 import be.hcpl.android.sportapp.ui.screen.StepOverviewScreen

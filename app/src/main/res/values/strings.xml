@@ -11,4 +11,6 @@
     <string name="content_description_checked">task completed</string>
     <string name="monitors_label">Over Harstlagmeters</string>
     <string name="monitors_description">Heb je al een goede harstlag meter? Dan kun je deze stap met een gerust hart overslaan.</string>
+    <string name="title_app">Hartslag Zones</string>
+    <string name="description_navigate_back">terug</string>
 </resources>
