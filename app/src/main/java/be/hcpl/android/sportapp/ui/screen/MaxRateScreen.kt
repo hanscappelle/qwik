@@ -17,7 +17,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 import be.hcpl.android.sportapp.ui.theme.AppTypography
-import be.hcpl.android.sportapp.ui.theme.primaryDark
 import be.hcpl.android.sportapp.ui.theme.primaryLight
 
 data class MaxRateUiModel(
@@ -25,6 +24,7 @@ data class MaxRateUiModel(
     val calculateVisible: Boolean = false,
     val birthYear: Int? = null,
     val calculatedResult: Int? = null,
+    val testedMaxRate: Int? = null,
 )
 
 @Composable
@@ -32,6 +32,7 @@ fun MaxRateScreen(
     model: MaxRateUiModel,
     onSelectTest: () -> Unit = {},
     onSelectCalculate: () -> Unit = {},
+    onMaxChanged: (String) -> Unit = {},
     onAgeChanged: (String) -> Unit = {},
 ) {
     Column(
@@ -54,7 +55,10 @@ fun MaxRateScreen(
         }
 
         if (model.testVisible)
-            MaxRateTestScreen()
+            MaxRateTestScreen(
+                model,
+                onMaxChanged = { value -> onMaxChanged(value) },
+            )
 
         Card(
             modifier = Modifier.fillMaxWidth(),
@@ -69,7 +73,7 @@ fun MaxRateScreen(
         if (model.calculateVisible)
             MaxRateCalculateScreen(
                 model = model,
-                onAgeChanged = { value -> onAgeChanged(value) }
+                onAgeChanged = { value -> onAgeChanged(value) },
             )
     }
 
@@ -77,6 +81,8 @@ fun MaxRateScreen(
 
 @Composable
 fun MaxRateTestScreen(
+    model: MaxRateUiModel,
+    onMaxChanged: (String) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -90,6 +96,15 @@ fun MaxRateTestScreen(
         Body(text = stringResource(R.string.max_rate_option1_description2))
         Body(text = stringResource(R.string.max_rate_option1_description3))
         Body(text = stringResource(R.string.max_rate_option1_description4))
+        // TODO limit input type to numeric (x2)
+        // TODO store values
+        TextField(
+            value = model.testedMaxRate?.toString() ?: "",
+            onValueChange = { year -> onMaxChanged(year) },
+            label = {
+                Text(text = stringResource(R.string.label_tested_max_rate))
+            }
+        )
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -109,8 +124,8 @@ fun MaxRateTestScreen(
 @Composable
 fun MaxRateCalculateScreen(
     model: MaxRateUiModel,
-    modifier: Modifier = Modifier,
     onAgeChanged: (String) -> Unit = {},
+    modifier: Modifier = Modifier,
 ) {
     Column(
         modifier = Modifier

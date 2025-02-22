@@ -57,6 +57,18 @@ class MaxRateViewModel() : ViewModel() {
         }
     }
 
+    fun onInputMaxChanged(testValue: String) {
+        uiState.value?.uiModel?.let { model ->
+            uiState.postValue(
+                UiState(
+                    uiModel = model.copy(
+                        testedMaxRate = testValue.toInt(),
+                    )
+                )
+            )
+        }
+    }
+
     data class UiState(
         val uiModel: MaxRateUiModel,
     )

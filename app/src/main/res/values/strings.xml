@@ -27,4 +27,5 @@
     <string name="max_rate_option2_extra">Deze gegevens blijven op je toestel. We slaan het resultaat (niet de leeftijd) wel lokaal op om te gebruiken in de volgende stappen.\n\nEr zijn hiervoor 2 methodes, de eerste vertrekt van een maximale hartslag van 220 min je leeftijd. De andere methode (hier toegepast) zou iets nauwkeuriger zijn met de formule 208 min (0,7 x jouw leeftijd). </string>
     <string name="label_age">Geboortejaar\n</string>
     <string name="max_rate_option2_description_result">Op basis van je invoer is onderstaande je maximale hartslag:</string>
+    <string name="label_tested_max_rate">Resultaat</string>
 </resources>

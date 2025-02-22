@@ -36,7 +36,8 @@ class MaxRateActivity : ComponentActivity() {
                     model = uiState.uiModel,
                     onSelectTest = { viewModel.onSelectTest() },
                     onSelectCalculate = { viewModel.onSelectCalculate() },
-                    onAgeChanged = { input -> viewModel.onInputChanged(input)}
+                    onMaxChanged = { input -> viewModel.onInputMaxChanged(input)},
+                    onAgeChanged = { input -> viewModel.onInputChanged(input)},
                 )
             }
 
