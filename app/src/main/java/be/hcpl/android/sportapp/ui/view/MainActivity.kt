@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
     private fun onEvent(event: UiEvent) {
         when (event) {
             is InfoView -> {
-                val intent = Intent(this, InfoActivity::class.java).apply {
+                startActivity(Intent(this, InfoActivity::class.java).apply {
                     putExtra(
                         InfoActivity.KEY_URL,
                         "https://www.asadventure.com/nl/expertise-tips/Activewear/hoe-kies-je-de-beste-hartslagmeter.html"
@@ -63,9 +63,23 @@ class MainActivity : ComponentActivity() {
                         InfoActivity.KEY_TITLE,
                         getString(R.string.monitors_label)
                     )
-                }
-                startActivity(intent)
+                })
             }
+
+            UiEvent.AboutApp -> {
+                startActivity(Intent(this, InfoActivity::class.java).apply {
+                    putExtra(
+                        InfoActivity.KEY_URL,
+                        "https://www.dropbox.com/scl/fi/n3euk925u33viwwy60e4o/privacy-policy.html?rlkey=e52fsan1pmgu7lyt3uvybqyws&st=w8f8utht",
+                    )
+                    putExtra(
+                        InfoActivity.KEY_TITLE,
+                        getString(R.string.about_label)
+                    )
+                })
+            }
+
+            UiEvent.MaxRate -> startActivity(Intent(this, MaxRateActivity::class.java))
         }
     }
 }

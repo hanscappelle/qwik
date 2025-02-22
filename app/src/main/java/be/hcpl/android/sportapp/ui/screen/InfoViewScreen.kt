@@ -8,9 +8,7 @@ import android.webkit.WebView
 
 @Composable
 fun InfoViewScreen(url: String) {
-
     WebView(url)
-
 }
 
 @Composable

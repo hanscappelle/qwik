@@ -27,6 +27,7 @@
         </activity>
 
         <activity android:name=".ui.view.InfoActivity" />
+        <activity android:name=".ui.view.MaxRateActivity" />
 
     </application>
 
