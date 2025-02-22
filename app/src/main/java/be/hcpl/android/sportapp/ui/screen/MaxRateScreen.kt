@@ -46,6 +46,22 @@ fun MaxRateScreen(
         )
         Card(
             modifier = Modifier.fillMaxWidth(),
+            onClick = { onSelectCalculate() },
+        ) {
+            Body(
+                modifier = Modifier.padding(16.dp),
+                text = stringResource(R.string.max_rate_option2),
+            )
+        }
+
+        if (model.calculateVisible)
+            MaxRateCalculateScreen(
+                model = model,
+                onAgeChanged = { value -> onAgeChanged(value) },
+            )
+
+        Card(
+            modifier = Modifier.fillMaxWidth(),
             onClick = { onSelectTest() },
         ) {
             Body(
@@ -60,21 +76,6 @@ fun MaxRateScreen(
                 onMaxChanged = { value -> onMaxChanged(value) },
             )
 
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = { onSelectCalculate() },
-        ) {
-            Body(
-                modifier = Modifier.padding(16.dp),
-                text = stringResource(R.string.max_rate_option2),
-            )
-        }
-
-        if (model.calculateVisible)
-            MaxRateCalculateScreen(
-                model = model,
-                onAgeChanged = { value -> onAgeChanged(value) },
-            )
     }
 
 }
@@ -139,7 +140,7 @@ fun MaxRateCalculateScreen(
             value = model.birthYear?.toString() ?: "",
             onValueChange = { year -> onAgeChanged(year) },
             label = {
-                Text(text = stringResource(R.string.label_age))
+                Text(text = stringResource(R.string.label_birth_year))
             }
         )
         Body(
