@@ -42,7 +42,6 @@ class MaxRateViewModel() : ViewModel() {
 
     fun onInputChanged(year: String) {
         val year: Int = year.toInt()
-        // TODO get current year
         val age = Calendar.getInstance().get(Calendar.YEAR) - year
         val calculatedResult = (208 - 0.7 * age).toInt()
         uiState.value?.uiModel?.let { model ->

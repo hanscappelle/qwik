@@ -2,18 +2,16 @@ package be.hcpl.android.sportapp.ui.view
 
 import be.hcpl.android.sportapp.R
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import be.hcpl.android.sportapp.domain.model.StepPosition
+import be.hcpl.android.sportapp.ui.Literals
 import be.hcpl.android.sportapp.ui.model.OverviewUiModel
 import be.hcpl.android.sportapp.ui.model.StepItemUiModel
-import java.lang.ref.WeakReference
 
 class MainViewModel(
-    //private val context: WeakReference<Context>,
-    private val context: Context,
+    private val literals: Literals,
 ) : ViewModel() {
 
     //private val _uiState = MutableStateFlow<UiState>(UiState(OverviewUiModel(emptyList())))
@@ -28,8 +26,8 @@ class MainViewModel(
         _uiState.postValue(
             UiState(
                 OverviewUiModel(
-                    welcomeTitle = context.getString(R.string.welcome_title),
-                    welcomeText = context.getString(R.string.welcome_text),
+                    welcomeTitle = literals.get(R.string.welcome_title),
+                    welcomeText = literals.get(R.string.welcome_text),
                     steps = listOf(
                         // TODO get these from domain, including completion
                         StepPosition.HART_RATE_MONITORS.toUiModel(false),
@@ -44,8 +42,8 @@ class MainViewModel(
 
     private fun StepPosition.toUiModel(completed: Boolean) = StepItemUiModel(
         step = this,
-        label = context.getString(labelId),
-        description = context.getString(descriptionId),
+        label = literals.get(labelId),
+        description = literals.get(descriptionId),
         completed = completed,
     )
 

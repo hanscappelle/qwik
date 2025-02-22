@@ -1,14 +1,14 @@
 package be.hcpl.android.sportapp.ui.view
 
-import android.content.Context
 import be.hcpl.android.sportapp.R
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import be.hcpl.android.sportapp.ui.Literals
 
 class InfoViewModel(
     private val url: String?,
     private val title: String?,
-    private val context: Context, // FIXME remove this
+    private val literals: Literals,
 ) : ViewModel() {
 
     val uiState: MutableLiveData<UiState> = MutableLiveData<UiState>()
@@ -19,7 +19,7 @@ class InfoViewModel(
     init {
         uiState.postValue(
             UiState(
-                title = title ?: context.getString(R.string.title_app),
+                title = title ?: literals.get(R.string.title_app),
                 url = url ?: "https://www.google.be"
             )
         )
