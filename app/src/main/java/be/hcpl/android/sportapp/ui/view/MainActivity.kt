@@ -1,5 +1,6 @@
 package be.hcpl.android.sportapp.ui.view
 
+import be.hcpl.android.sportapp.R
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -57,6 +58,10 @@ class MainActivity : ComponentActivity() {
                     putExtra(
                         InfoActivity.KEY_URL,
                         "https://www.asadventure.com/nl/expertise-tips/Activewear/hoe-kies-je-de-beste-hartslagmeter.html"
+                    )
+                    putExtra(
+                        InfoActivity.KEY_TITLE,
+                        getString(R.string.monitors_label)
                     )
                 }
                 startActivity(intent)

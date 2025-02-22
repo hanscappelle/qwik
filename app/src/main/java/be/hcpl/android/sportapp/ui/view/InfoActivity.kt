@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.Observer
 import be.hcpl.android.sportapp.ui.screen.AppScaffold
 import be.hcpl.android.sportapp.ui.screen.InfoViewScreen
@@ -21,7 +22,10 @@ import java.lang.System.exit
 class InfoActivity : ComponentActivity() {
 
     private val viewModel: InfoViewModel by viewModel {
-        parametersOf(intent.getStringExtra(KEY_URL))
+        parametersOf(
+            intent.getStringExtra(KEY_URL),
+            intent.getStringExtra(KEY_TITLE),
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +42,10 @@ class InfoActivity : ComponentActivity() {
 
     private fun onChangeObserved(uiState: UiState) {
         setContent {
-            AppScaffold(onBack = { viewModel.back() }) {
+            AppScaffold(
+                title = uiState.title,
+                onBack = { viewModel.back() },
+            ) {
                 InfoViewScreen(uiState.url)
             }
 
@@ -47,5 +54,6 @@ class InfoActivity : ComponentActivity() {
 
     companion object {
         const val KEY_URL = "KEY_URL"
+        const val KEY_TITLE = "KEY_TITLE"
     }
 }

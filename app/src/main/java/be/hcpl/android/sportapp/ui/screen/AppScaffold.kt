@@ -4,9 +4,7 @@ import be.hcpl.android.sportapp.R
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBarsIgnoringVisibility
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,12 +20,16 @@ import be.hcpl.android.sportapp.ui.theme.AppTheme
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
-fun AppScaffold(onBack: (() -> Unit)? = null, content: @Composable () -> Unit) {
+fun AppScaffold(
+    title: String = stringResource(R.string.title_app),
+    onBack: (() -> Unit)? = null,
+    content: @Composable () -> Unit,
+) {
     AppTheme {
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text(text = stringResource(R.string.title_app)) },
+                    title = { Text(text = title) },
                     navigationIcon = {
                         onBack?.let {
                             IconButton(onClick = { onBack() }) {
