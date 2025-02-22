@@ -3,7 +3,6 @@ package be.hcpl.android.sportapp.ui.view
 import be.hcpl.android.sportapp.R
 
 import android.content.Context
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,6 +22,8 @@ class MainViewModel(
     val uiState: LiveData<UiState>
         get() = _uiState
 
+    val events: MutableLiveData<UiEvent> = MutableLiveData()
+
     init {
         _uiState.postValue(
             UiState(
@@ -31,9 +32,10 @@ class MainViewModel(
                     welcomeText = context.getString(R.string.welcome_text),
                     steps = listOf(
                         // TODO get these from domain, including completion
-                        StepPosition.ABOUT.toUiModel(false),
+                        StepPosition.HART_RATE_MONITORS.toUiModel(false),
                         StepPosition.MAX_HART_RATE.toUiModel(false),
                         StepPosition.VISUALISE_ZONES.toUiModel(false),
+                        StepPosition.ABOUT.toUiModel(false),
                     )
                 )
             )
@@ -48,18 +50,28 @@ class MainViewModel(
     )
 
     fun onSelect(step: StepPosition) {
-        // TODO handle step selection here
-        //Toast.makeText(context, "selected step $step", Toast.LENGTH_LONG).show()
-        _uiState.postValue(
-            _uiState.value?.copy(
-                overview = _uiState.value?.overview?.copy(
-                    steps = _uiState.value?.overview?.steps?.map { it -> if (it.step == step) it.copy(completed = true) else it }.orEmpty()
+        // update completion
+        _uiState.value?.let { state ->
+            _uiState.postValue(
+                state.copy(
+                    overview = state.overview?.copy(
+                        steps = state.overview.steps.map { it -> if (it.step == step) it.copy(completed = true) else it }
+                    )
                 )
             )
-        )
+        }
+        // handle steps
+        when (step) {
+            StepPosition.HART_RATE_MONITORS -> events.postValue(UiEvent.InfoView)
+            else -> Unit
+        }
+    }
+
+    data class UiState(
+        val overview: OverviewUiModel?,
+    )
+
+    sealed class UiEvent {
+        data object InfoView : UiEvent()
     }
 }
-
-data class UiState(
-    val overview: OverviewUiModel?,
-)
