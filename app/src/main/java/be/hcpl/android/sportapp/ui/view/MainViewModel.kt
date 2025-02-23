@@ -34,6 +34,7 @@ class MainViewModel(
                         StepPosition.HART_RATE_MONITORS.toUiModel(),
                         StepPosition.MAX_HART_RATE.toUiModel(),
                         StepPosition.VISUALISE_ZONES.toUiModel(),
+                        StepPosition.TRAINING_PROGRAMS.toUiModel(),
                         StepPosition.ABOUT.toUiModel(),
                     )
                 )
@@ -65,10 +66,11 @@ class MainViewModel(
         // handle steps
         when (step) {
             StepPosition.HART_RATE_MONITORS -> events.postValue(UiEvent.InfoView)
-            StepPosition.ABOUT -> events.postValue(UiEvent.AboutApp)
-            StepPosition.NOT_SET -> TODO()
             StepPosition.MAX_HART_RATE -> events.postValue(UiEvent.MaxRate)
             StepPosition.VISUALISE_ZONES -> TODO()
+            StepPosition.TRAINING_PROGRAMS -> TODO()
+            StepPosition.ABOUT -> events.postValue(UiEvent.AboutApp)
+            StepPosition.NOT_SET -> TODO()
         }
     }
 

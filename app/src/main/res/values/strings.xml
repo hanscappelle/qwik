@@ -31,4 +31,6 @@
     <string name="title_max_rate">Omslagpunt bepalen</string>
     <string name="description_expand">uitvouwen</string>
     <string name="description_collapse">samenvouwen</string>
+    <string name="programs_label">Training Programma\'s</string>
+    <string name="programs_description">Voorbeelden van training programma\'s op basis van de eerder ingestelde maximale hartslag.</string>
 </resources>
