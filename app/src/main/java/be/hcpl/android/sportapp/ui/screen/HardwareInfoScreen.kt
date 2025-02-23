@@ -12,20 +12,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.R
 import be.hcpl.android.sportapp.ui.components.Body
-import be.hcpl.android.sportapp.ui.components.BodyLarge
 import be.hcpl.android.sportapp.ui.components.HeadLine
 import be.hcpl.android.sportapp.ui.components.InfoCard
-import be.hcpl.android.sportapp.ui.components.Title
 import be.hcpl.android.sportapp.ui.components.TitleBold
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 
 @Composable
-fun HardwareInfoScreen() {
+fun HardwareInfoScreen(
+    onUrlClicked: (String) -> Unit,
+) {
     Column(
         modifier = Modifier
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         HeadLine(stringResource(R.string.hardware_header1))
 
@@ -41,6 +41,7 @@ fun HardwareInfoScreen() {
         InfoCard(
             title = stringResource(R.string.hardware_title4),
             text = stringResource(R.string.hardware_description4),
+            onUrlClicked = onUrlClicked,
         )
 
     }
@@ -50,6 +51,6 @@ fun HardwareInfoScreen() {
 @Preview(showBackground = true)
 fun HardwareInfoScreenPreview() {
     AppTheme {
-        HardwareInfoScreen()
+        HardwareInfoScreen({})
     }
 }

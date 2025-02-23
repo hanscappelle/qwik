@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalTextApi::class)
+
 package be.hcpl.android.sportapp.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,12 +11,15 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.R
 import be.hcpl.android.sportapp.ui.theme.AppTypography
 import be.hcpl.android.sportapp.ui.theme.primaryLight
+import uz.kjuraev.linkify.LinkifyContent
+import uz.kjuraev.linkify.LinkifyText
 
 @Composable
 fun Title(
@@ -112,6 +117,7 @@ fun InfoCard(
     title: String? = null,
     text: String,
     modifier: Modifier = Modifier,
+    onUrlClicked: ((String) -> Unit) = {},
 ) {
     Card(
         modifier = modifier.fillMaxWidth()
@@ -121,9 +127,14 @@ fun InfoCard(
             modifier = Modifier.padding(16.dp),
             text = title ?: stringResource(R.string.max_rate_extra_title)
         )
-        Body(
-            modifier = Modifier.padding(16.dp),
-            text = text,
+        LinkifyText(
+            modifier = Modifier.padding(horizontal = 16.dp),
+            content = LinkifyContent(
+                originalText = text,
+            ),
+            style = AppTypography.bodyLarge,
+            onUrlClicked = onUrlClicked,
         )
+
     }
 }
