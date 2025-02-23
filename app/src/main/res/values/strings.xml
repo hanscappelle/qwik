@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SportApp</string>
+    <string name="app_name">Hartslag zones en omslagpunt</string>
     <string name="about_label">Over Deze App</string>
     <string name="about_description">Meer info over deze App maar ook over privacy en gebruikte referenties.</string>
     <string name="max_label">Maximum Hartslag Bepalen</string>
