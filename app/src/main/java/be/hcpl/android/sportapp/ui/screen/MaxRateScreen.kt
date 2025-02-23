@@ -67,7 +67,7 @@ fun MaxRateScreen(
         Option(
             text = stringResource(R.string.max_rate_option1),
             onSelect = onSelectTest,
-            isVisible = model.calculateVisible,
+            isVisible = model.testVisible,
         )
         if (model.testVisible)
             MaxRateTestScreen(
