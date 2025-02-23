@@ -15,7 +15,6 @@ eerste release met minimal functionaliteit
 ## TODO
 
 - complete about information app
-- fix dark mode linkified content
 - create app icon
 - onderscheid man/vrouw maken?
 
@@ -66,3 +65,5 @@ https://medium.com/@kevinnzou/using-webview-in-jetpack-compose-bbf5991cfd14
 
 linkify in text compose
 https://github.com/Khudoyshukur/LinkifyTextCompose
+=> issue with dark mode because of ClickableText
+https://stackoverflow.com/questions/72897975/clickabletext-composable-font-color-not-adjusting-to-dark-mode
