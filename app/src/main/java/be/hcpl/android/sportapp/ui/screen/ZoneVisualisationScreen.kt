@@ -22,6 +22,7 @@ import be.hcpl.android.sportapp.R
 import be.hcpl.android.sportapp.ui.components.Body
 import be.hcpl.android.sportapp.ui.components.HeadLine
 import be.hcpl.android.sportapp.ui.components.BodyLarge
+import be.hcpl.android.sportapp.ui.components.TitleBold
 import be.hcpl.android.sportapp.ui.model.Zone
 import be.hcpl.android.sportapp.ui.model.ZoneVisualUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
@@ -120,10 +121,10 @@ fun ZoneVisualisationScreen(
 
         // extra info
         if (!model.optimizeLayout) {
-            HeadLine(text = stringResource(R.string.zones_visual_description_header))
-            BodyLarge(text = stringResource(R.string.zones_visual_description1))
-            BodyLarge(text = stringResource(R.string.zones_visual_description2))
-            BodyLarge(text = stringResource(R.string.zones_visual_description3))
+            TitleBold(text = stringResource(R.string.zones_visual_description_header))
+            Body(text = stringResource(R.string.zones_visual_description1))
+            Body(text = stringResource(R.string.zones_visual_description2))
+            Body(text = stringResource(R.string.zones_visual_description3))
         }
     }
 

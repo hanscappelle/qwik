@@ -36,22 +36,7 @@ class MainActivity : ComponentActivity() {
 
     private fun onEvent(event: UiEvent) {
         when (event) {
-            is InfoView -> {
-                startActivity(Intent(this, InfoActivity::class.java).apply {
-                    putExtra(
-                        InfoActivity.KEY_URL,
-                        "https://www.asadventure.com/nl/expertise-tips/Activewear/hoe-kies-je-de-beste-hartslagmeter.html"
-                    )
-                    putExtra(
-                        InfoActivity.KEY_TITLE,
-                        getString(R.string.monitors_label)
-                    )
-                    putExtra(
-                        InfoActivity.KEY_ASSET_ID,
-                        R.raw.heart_rate_monitors,
-                    )
-                })
-            }
+            is InfoView -> startActivity(Intent(this, HardwareInfoActivity::class.java))
 
             UiEvent.AboutApp -> {
                 startActivity(Intent(this, InfoActivity::class.java).apply {

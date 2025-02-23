@@ -30,6 +30,7 @@
         <activity android:name=".ui.view.MaxRateActivity" />
         <activity android:name=".ui.view.ZonesActivity" />
         <activity android:name=".ui.view.TrainingActivity" />
+        <activity android:name=".ui.view.HardwareInfoActivity" />
 
     </application>
 
