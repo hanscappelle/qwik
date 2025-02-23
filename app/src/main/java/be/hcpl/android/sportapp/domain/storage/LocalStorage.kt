@@ -13,6 +13,7 @@ interface Storage {
     fun store(key: String, value: String)
     fun store(key: String, value: Boolean)
     fun store(key: String, value: Int)
+    fun clearAll()
 }
 
 class LocalStorage(
@@ -35,9 +36,7 @@ class LocalStorage(
 
     override fun store(key: String, value: Int) = prefs.edit().putInt(key, value).apply()
 
-    fun clearAll() {
-        prefs.edit().clear().apply()
-    }
+    override fun clearAll() = prefs.edit().clear().apply()
 
     companion object {
         const val PREF_NAME = "local.storage"
