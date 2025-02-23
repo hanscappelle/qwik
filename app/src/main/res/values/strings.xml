@@ -31,7 +31,7 @@
     <string name="title_max_rate">Omslagpunt bepalen</string>
     <string name="description_expand">uitvouwen</string>
     <string name="description_collapse">samenvouwen</string>
-    <string name="programs_label">Training Programma\'s</string>
+    <string name="programs_label">Voorbeeld Trainingen &amp; Programma\'s</string>
     <string name="programs_description">Voorbeelden van training programma\'s op basis van de eerder ingestelde maximale hartslag.</string>
     <string name="zones_intro">Op basis van je eerder bepaalde maximale hartslag kun je nu de verschillende zones visualiseren. Deze gebruik je om in de volgende stappen je training op te stellen.</string>
     <string name="title_zones">Hartslag Zones Visualiseren</string>
