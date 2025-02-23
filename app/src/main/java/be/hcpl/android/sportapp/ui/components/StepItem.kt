@@ -46,15 +46,8 @@ fun StepItem(
                     .fillMaxWidth()
                     .padding(16.dp)
             ) {
-                Text(
-                    style = AppTypography.titleLarge,
-                    text = model.label,
-                    //color = customColor1Light,
-                )
-                Text(
-                    style = AppTypography.bodyLarge,
-                    text = model.description,
-                )
+                TitleBold(text = model.label)
+                Body(text = model.description)
             }
         }
     }

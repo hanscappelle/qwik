@@ -128,7 +128,7 @@ fun InfoCard(
             text = title ?: stringResource(R.string.max_rate_extra_title)
         )
         LinkifyText(
-            modifier = Modifier.padding(horizontal = 16.dp),
+            modifier = Modifier.padding(start = 16.dp, top = 0.dp, end = 16.dp, bottom = 16.dp),
             content = LinkifyContent(
                 originalText = text,
             ),

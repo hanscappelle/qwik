@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.ui.components.Body
 import be.hcpl.android.sportapp.ui.components.HeadLine
+import be.hcpl.android.sportapp.ui.components.InfoCard
 import be.hcpl.android.sportapp.ui.components.NumericInput
 import be.hcpl.android.sportapp.ui.components.Title
 import be.hcpl.android.sportapp.ui.components.Value
@@ -130,19 +131,10 @@ fun MaxRateTestScreen(
             onValueChange = { year -> onMaxChanged(year) },
             label = stringResource(R.string.label_tested_max_rate)
         )
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            Title(
-                modifier = Modifier.padding(16.dp),
-                text = stringResource(R.string.max_rate_extra_title)
-            )
-            Body(
-                modifier = Modifier.padding(16.dp),
-                text = stringResource(R.string.max_rate_option1_extra)
-            )
-        }
+        InfoCard(
+            title = stringResource(R.string.max_rate_extra_title),
+            text = stringResource(R.string.max_rate_option1_extra),
+        )
     }
 }
 
@@ -171,19 +163,10 @@ fun MaxRateCalculateScreen(
         Value(
             text = "${model.calculatedResult ?: ""}"
         )
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            Title(
-                modifier = Modifier.padding(16.dp),
-                text = stringResource(R.string.max_rate_extra_title)
-            )
-            Body(
-                modifier = Modifier.padding(16.dp),
-                text = stringResource(R.string.max_rate_option2_extra)
-            )
-        }
+        InfoCard(
+            title = stringResource(R.string.max_rate_extra_title),
+            text = stringResource(R.string.max_rate_option2_extra),
+        )
     }
 }
 
