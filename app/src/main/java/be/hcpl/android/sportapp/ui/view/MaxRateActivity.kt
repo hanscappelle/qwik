@@ -8,7 +8,7 @@ import androidx.lifecycle.Observer
 import be.hcpl.android.sportapp.ui.i18n.Literals
 import be.hcpl.android.sportapp.ui.screen.AppScaffold
 import be.hcpl.android.sportapp.ui.screen.MaxRateScreen
-import be.hcpl.android.sportapp.ui.screen.MaxRateUiModel
+import be.hcpl.android.sportapp.ui.model.MaxRateUiModel
 import be.hcpl.android.sportapp.ui.view.MaxRateViewModel.UiEvent
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel

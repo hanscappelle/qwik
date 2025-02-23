@@ -24,17 +24,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import be.hcpl.android.sportapp.ui.model.MaxRateUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 import be.hcpl.android.sportapp.ui.theme.AppTypography
 import be.hcpl.android.sportapp.ui.theme.primaryLight
-
-data class MaxRateUiModel(
-    val testVisible: Boolean = false,
-    val calculateVisible: Boolean = false,
-    val birthYear: Int? = null,
-    val calculatedResult: Int? = null,
-    val testedMaxRate: Int? = null,
-)
 
 @Composable
 fun MaxRateScreen(

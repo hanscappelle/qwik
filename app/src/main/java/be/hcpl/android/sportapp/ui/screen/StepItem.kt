@@ -17,18 +17,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.ui.model.StepItemUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 import be.hcpl.android.sportapp.ui.theme.AppTypography
-import be.hcpl.android.sportapp.ui.theme.customColor1Dark
 import be.hcpl.android.sportapp.ui.theme.customColor1Light
-import be.hcpl.android.sportapp.ui.theme.customColor3Light
-import be.hcpl.android.sportapp.ui.theme.primaryLight
-import be.hcpl.android.sportapp.ui.theme.tertiaryLight
 
 @Composable
 fun StepItem(

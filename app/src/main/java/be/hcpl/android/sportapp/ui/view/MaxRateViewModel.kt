@@ -3,7 +3,7 @@ package be.hcpl.android.sportapp.ui.view
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import be.hcpl.android.sportapp.domain.storage.LocalStorage
-import be.hcpl.android.sportapp.ui.screen.MaxRateUiModel
+import be.hcpl.android.sportapp.ui.model.MaxRateUiModel
 import java.util.Calendar
 
 class MaxRateViewModel(
