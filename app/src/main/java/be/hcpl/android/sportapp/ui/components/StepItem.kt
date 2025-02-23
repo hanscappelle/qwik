@@ -22,8 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.ui.model.StepItemUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
-import be.hcpl.android.sportapp.ui.theme.AppTypography
-import be.hcpl.android.sportapp.ui.theme.customColor1Light
+import be.hcpl.android.sportapp.ui.theme.primaryLight
 
 @Composable
 fun StepItem(
@@ -59,7 +58,7 @@ fun CompletionIndicator(completed: Boolean, modifier: Modifier) {
         Icon(
             Icons.Outlined.Check,
             modifier = modifier,
-            tint = customColor1Light,
+            tint = primaryLight,
             contentDescription = stringResource(id = R.string.content_description_checked),
         )
 }
