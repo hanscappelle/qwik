@@ -28,4 +28,5 @@
     <string name="label_birth_year">Geboortejaar</string>
     <string name="max_rate_option2_description_result">Op basis van je invoer is onderstaande je maximale hartslag:</string>
     <string name="label_tested_max_rate">Resultaat</string>
+    <string name="title_max_rate">Omslagpunt bepalen</string>
 </resources>

@@ -1,18 +1,24 @@
 package be.hcpl.android.sportapp.ui.view
 
+import be.hcpl.android.sportapp.R
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.lifecycle.Observer
+import be.hcpl.android.sportapp.ui.i18n.Literals
 import be.hcpl.android.sportapp.ui.screen.AppScaffold
 import be.hcpl.android.sportapp.ui.screen.MaxRateScreen
 import be.hcpl.android.sportapp.ui.view.MaxRateViewModel.UiEvent
 import be.hcpl.android.sportapp.ui.view.MaxRateViewModel.UiState
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MaxRateActivity : ComponentActivity() {
 
+    // TODO store values
+
     private val viewModel: MaxRateViewModel by viewModel()
+    private val literals: Literals by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +35,7 @@ class MaxRateActivity : ComponentActivity() {
     private fun onChangeObserved(uiState: UiState) {
         setContent {
             AppScaffold(
-                title = "Omslagpunt bepalen",
+                title = literals.get(R.string.title_max_rate),
                 onBack = { viewModel.back() },
             ) {
                 MaxRateScreen(
@@ -37,7 +43,7 @@ class MaxRateActivity : ComponentActivity() {
                     onSelectTest = { viewModel.onSelectTest() },
                     onSelectCalculate = { viewModel.onSelectCalculate() },
                     onMaxChanged = { input -> viewModel.onInputMaxChanged(input)},
-                    onAgeChanged = { input -> viewModel.onInputChanged(input)},
+                    onYearChanged = { input -> viewModel.onInputChanged(input)},
                 )
             }
 

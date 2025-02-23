@@ -40,8 +40,7 @@ class MaxRateViewModel() : ViewModel() {
         }
     }
 
-    fun onInputChanged(year: String) {
-        val year: Int = year.toInt()
+    fun onInputChanged(year: Int) {
         val age = Calendar.getInstance().get(Calendar.YEAR) - year
         val calculatedResult = (208 - 0.7 * age).toInt()
         uiState.value?.uiModel?.let { model ->
@@ -49,19 +48,19 @@ class MaxRateViewModel() : ViewModel() {
                 UiState(
                     uiModel = model.copy(
                         birthYear = year,
-                        calculatedResult = calculatedResult,
+                        calculatedResult = if (calculatedResult > 0) calculatedResult else null,
                     )
                 )
             )
         }
     }
 
-    fun onInputMaxChanged(testValue: String) {
+    fun onInputMaxChanged(testValue: Int) {
         uiState.value?.uiModel?.let { model ->
             uiState.postValue(
                 UiState(
                     uiModel = model.copy(
-                        testedMaxRate = testValue.toInt(),
+                        testedMaxRate = testValue,
                     )
                 )
             )

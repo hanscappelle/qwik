@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import be.hcpl.android.sportapp.R
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
@@ -13,6 +14,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.ui.theme.AppTheme
@@ -32,8 +34,8 @@ fun MaxRateScreen(
     model: MaxRateUiModel,
     onSelectTest: () -> Unit = {},
     onSelectCalculate: () -> Unit = {},
-    onMaxChanged: (String) -> Unit = {},
-    onAgeChanged: (String) -> Unit = {},
+    onMaxChanged: (Int) -> Unit = {},
+    onYearChanged: (Int) -> Unit = {},
 ) {
     Column(
         modifier = Modifier
@@ -57,7 +59,7 @@ fun MaxRateScreen(
         if (model.calculateVisible)
             MaxRateCalculateScreen(
                 model = model,
-                onAgeChanged = { value -> onAgeChanged(value) },
+                onYearChanged = { value -> onYearChanged(value) },
             )
 
         Card(
@@ -83,7 +85,7 @@ fun MaxRateScreen(
 @Composable
 fun MaxRateTestScreen(
     model: MaxRateUiModel,
-    onMaxChanged: (String) -> Unit = {},
+    onMaxChanged: (Int) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -97,14 +99,10 @@ fun MaxRateTestScreen(
         Body(text = stringResource(R.string.max_rate_option1_description2))
         Body(text = stringResource(R.string.max_rate_option1_description3))
         Body(text = stringResource(R.string.max_rate_option1_description4))
-        // TODO limit input type to numeric (x2)
-        // TODO store values
-        TextField(
-            value = model.testedMaxRate?.toString() ?: "",
+        NumericInput(
+            value = model.testedMaxRate,
             onValueChange = { year -> onMaxChanged(year) },
-            label = {
-                Text(text = stringResource(R.string.label_tested_max_rate))
-            }
+            label = stringResource(R.string.label_tested_max_rate)
         )
         Card(
             modifier = Modifier
@@ -125,7 +123,7 @@ fun MaxRateTestScreen(
 @Composable
 fun MaxRateCalculateScreen(
     model: MaxRateUiModel,
-    onAgeChanged: (String) -> Unit = {},
+    onYearChanged: (Int) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -136,12 +134,10 @@ fun MaxRateCalculateScreen(
     ) {
         //Title(text = stringResource(R.string.max_rate_option2))
         Body(text = stringResource(R.string.max_rate_option2_description1))
-        TextField(
-            value = model.birthYear?.toString() ?: "",
-            onValueChange = { year -> onAgeChanged(year) },
-            label = {
-                Text(text = stringResource(R.string.label_birth_year))
-            }
+        NumericInput(
+            value = model.birthYear,
+            onValueChange = { year -> onYearChanged(year) },
+            label = stringResource(R.string.label_birth_year)
         )
         Body(
             text = stringResource(R.string.max_rate_option2_description_result)
@@ -202,6 +198,21 @@ fun Value(
     )
 }
 
+@Composable
+fun NumericInput(
+    value: Int? = null,
+    onValueChange: (Int) -> Unit,
+    label: String? = null,
+) {
+    TextField(
+        value = value?.toString().orEmpty(),
+        onValueChange = { value -> onValueChange(value.toIntOrNull() ?: 0) },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        label = {
+            label?.let { Text(text = it) }
+        }
+    )
+}
 
 @Preview(showBackground = true)
 @Composable
