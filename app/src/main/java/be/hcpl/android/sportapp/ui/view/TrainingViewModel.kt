@@ -28,7 +28,16 @@ class TrainingViewModel(
         val calculatedResult = storage.getInt(MaxRateViewModel.KEY_CALCULATED_RESULT)
         uiState.postValue(
             TrainingUiModel(
-                maxRate = testedResult.takeIf { it > 0 } ?: calculatedResult,
+                zonesUiModel = ZoneVisualUiModel(
+                    maxRate = testedResult.takeIf { it > 0 } ?: calculatedResult,
+                    zones = listOf(
+                        Zone(label = literals.get(R.string.label_zone_R), weight = 0.60f, color = customColor9),
+                        Zone(label = literals.get(R.string.label_zone_D1), weight = 0.10f, color = customColor1),
+                        Zone(label = literals.get(R.string.label_zone_D2), weight = 0.10f, color = customColor2),
+                        Zone(label = literals.get(R.string.label_zone_D3), weight = 0.05f, color = customColor3),
+                        Zone(label = literals.get(R.string.label_zone_D4), weight = 0.05f, color = customColor4),
+                    )
+                )
             )
         )
     }

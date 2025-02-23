@@ -65,4 +65,5 @@
     <string name="about_privacy_description1">De app slaat enkel je zelf geteste en je berekende omslagpunt op en welke van de stappen je al doorlopen hebt. Dat laatste is te zien aan het vinkje op de kaarten in het begin van de app. We delen hiervan niets online.</string>
     <string name="about_privacy_description2">Als je deze gegevens wil wissen kan dat via onderstaande knop. Of je kan via de systeem instellingen de app gegevens wissen.</string>
     <string name="about_privacy_erase">Alles Wissen</string>
+    <string name="training_zones">De verschillende zones aangepast aan uw gegevens zijn;</string>
 </resources>
