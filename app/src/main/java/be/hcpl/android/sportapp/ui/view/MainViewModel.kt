@@ -49,8 +49,10 @@ class MainViewModel(
     )
 
     fun onSelect(step: StepPosition) {
+        // TODO don't update right away, only after entering all data required in step
         // update completion
         storage.store(step.name, true)
+        // and update UI
         _uiState.value?.let { state ->
             _uiState.postValue(
                 state.copy(
