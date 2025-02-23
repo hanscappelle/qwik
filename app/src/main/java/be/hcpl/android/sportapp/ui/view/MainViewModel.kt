@@ -67,7 +67,7 @@ class MainViewModel(
         when (step) {
             StepPosition.HART_RATE_MONITORS -> events.postValue(UiEvent.InfoView)
             StepPosition.MAX_HART_RATE -> events.postValue(UiEvent.MaxRate)
-            StepPosition.VISUALISE_ZONES -> TODO()
+            StepPosition.VISUALISE_ZONES -> events.postValue(UiEvent.Zones)
             StepPosition.TRAINING_PROGRAMS -> TODO()
             StepPosition.ABOUT -> events.postValue(UiEvent.AboutApp)
             StepPosition.NOT_SET -> TODO()
@@ -82,5 +82,6 @@ class MainViewModel(
         data object InfoView : UiEvent()
         data object AboutApp : UiEvent()
         data object MaxRate : UiEvent()
+        data object Zones : UiEvent()
     }
 }

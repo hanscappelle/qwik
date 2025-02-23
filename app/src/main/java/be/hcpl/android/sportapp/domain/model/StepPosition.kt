@@ -2,13 +2,6 @@ package be.hcpl.android.sportapp.domain.model
 
 import be.hcpl.android.sportapp.R
 
-data class Step(
-    val position: StepPosition,
-    val completed: Boolean = false,
-    val description: String,
-    val label: String,
-)
-
 enum class StepPosition(
     val labelId: Int,
     val descriptionId: Int,
