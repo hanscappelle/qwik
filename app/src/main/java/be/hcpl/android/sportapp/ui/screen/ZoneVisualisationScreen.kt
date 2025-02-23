@@ -23,6 +23,7 @@ import be.hcpl.android.sportapp.R
 import be.hcpl.android.sportapp.ui.components.Body
 import be.hcpl.android.sportapp.ui.components.HeadLine
 import be.hcpl.android.sportapp.ui.components.BodyLarge
+import be.hcpl.android.sportapp.ui.components.InfoCard
 import be.hcpl.android.sportapp.ui.components.TitleBold
 import be.hcpl.android.sportapp.ui.components.ZonesInGraph
 import be.hcpl.android.sportapp.ui.components.ZonesInText
@@ -41,6 +42,7 @@ const val HEIGHT_PORTRAIT = 100
 @Composable
 fun ZoneVisualisationScreen(
     model: ZoneVisualUiModel,
+    onUrlClicked: (String) -> Unit = {},
 ) {
     Column(
         modifier = Modifier
@@ -86,6 +88,11 @@ fun ZoneVisualisationScreen(
             Body(text = stringResource(R.string.zones_visual_description1))
             Body(text = stringResource(R.string.zones_visual_description2))
             Body(text = stringResource(R.string.zones_visual_description3))
+
+            InfoCard(
+                text = stringResource(R.string.zones_external_info),
+                        onUrlClicked = onUrlClicked,
+            )
         }
     }
 

@@ -16,6 +16,7 @@ import be.hcpl.android.sportapp.ui.model.ZoneVisualUiModel
 import be.hcpl.android.sportapp.ui.screen.AppScaffold
 import be.hcpl.android.sportapp.ui.screen.StepOverviewScreen
 import be.hcpl.android.sportapp.ui.screen.ZoneVisualisationScreen
+import be.hcpl.android.sportapp.ui.view.InfoActivity.Companion.KEY_URL
 import be.hcpl.android.sportapp.ui.view.MainViewModel.UiEvent
 import be.hcpl.android.sportapp.ui.view.MainViewModel.UiEvent.InfoView
 import be.hcpl.android.sportapp.ui.view.MainViewModel.UiState
@@ -40,9 +41,18 @@ class ZonesActivity : ComponentActivity() {
             AppScaffold(
                 title = stringResource(R.string.title_zones),
                 onBack = { finish() }) {
-                ZoneVisualisationScreen(uiModel)
+                ZoneVisualisationScreen(uiModel,
+                onUrlClicked = { url -> navigateToUrl(url) }
+                )
             }
         }
+    }
+
+    private fun navigateToUrl(url: String) {
+        // TODO move to VM
+        startActivity(Intent(this, InfoActivity::class.java).apply {
+            putExtra(KEY_URL, url)
+        })
     }
 
 }
