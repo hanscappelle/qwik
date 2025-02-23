@@ -33,6 +33,7 @@ fun StepOverviewScreen(
             )
             Text(
                 style = AppTypography.bodyLarge,
+                //style = AppTypography.titleLarge,
                 text = model?.welcomeText.orEmpty()
             )
         }
