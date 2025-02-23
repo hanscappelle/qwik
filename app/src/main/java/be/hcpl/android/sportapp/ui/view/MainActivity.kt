@@ -17,13 +17,16 @@ class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModel()
 
-    // TODO app icon needed
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         viewModel.uiState.observe(this, Observer<UiState> { state -> onChangeObserved(state) })
         viewModel.events.observe(this, Observer<UiEvent> { event -> onEvent(event) })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.refresh()
     }
 
     private fun onChangeObserved(uiState: UiState) {
@@ -37,24 +40,7 @@ class MainActivity : ComponentActivity() {
     private fun onEvent(event: UiEvent) {
         when (event) {
             is InfoView -> startActivity(Intent(this, HardwareInfoActivity::class.java))
-
-            UiEvent.AboutApp -> {
-                startActivity(Intent(this, InfoActivity::class.java).apply {
-                    putExtra(
-                        InfoActivity.KEY_URL,
-                        "https://www.dropbox.com/scl/fi/n3euk925u33viwwy60e4o/privacy-policy.html?rlkey=e52fsan1pmgu7lyt3uvybqyws&st=w8f8utht",
-                    )
-                    putExtra(
-                        InfoActivity.KEY_TITLE,
-                        getString(R.string.about_label)
-                    )
-                    putExtra(
-                        InfoActivity.KEY_ASSET_ID,
-                        R.raw.about_app,
-                    )
-                })
-            }
-
+            UiEvent.AboutApp -> startActivity(Intent(this, AboutAppActivity::class.java))
             UiEvent.MaxRate -> startActivity(Intent(this, MaxRateActivity::class.java))
             UiEvent.Zones -> startActivity(Intent(this, ZonesActivity::class.java))
             UiEvent.Training -> startActivity(Intent(this, TrainingActivity::class.java))

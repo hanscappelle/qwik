@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -121,6 +122,7 @@ fun ZoneVisualisationScreen(
 
         // extra info
         if (!model.optimizeLayout) {
+            Spacer(modifier = Modifier.height(8.dp))
             TitleBold(text = stringResource(R.string.zones_visual_description_header))
             Body(text = stringResource(R.string.zones_visual_description1))
             Body(text = stringResource(R.string.zones_visual_description2))

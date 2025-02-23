@@ -35,6 +35,10 @@ class LocalStorage(
 
     override fun store(key: String, value: Int) = prefs.edit().putInt(key, value).apply()
 
+    fun clearAll() {
+        prefs.edit().clear().apply()
+    }
+
     companion object {
         const val PREF_NAME = "local.storage"
     }

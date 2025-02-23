@@ -8,31 +8,25 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import be.hcpl.android.sportapp.R
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.ui.components.Body
-import be.hcpl.android.sportapp.ui.components.HeadLine
 import be.hcpl.android.sportapp.ui.components.InfoCard
 import be.hcpl.android.sportapp.ui.components.NumericInput
 import be.hcpl.android.sportapp.ui.components.Title
 import be.hcpl.android.sportapp.ui.components.Value
 import be.hcpl.android.sportapp.ui.model.MaxRateUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
-import be.hcpl.android.sportapp.ui.theme.AppTypography
 import be.hcpl.android.sportapp.ui.theme.primaryLight
 
 @Composable
@@ -119,7 +113,7 @@ fun MaxRateTestScreen(
         modifier = Modifier
             .padding(vertical = 16.dp)
             .then(modifier),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         //Title(text = stringResource(R.string.max_rate_option1))
         Body(text = stringResource(R.string.max_rate_option1_description1))
@@ -148,7 +142,7 @@ fun MaxRateCalculateScreen(
         modifier = Modifier
             .padding(vertical = 16.dp)
             .then(modifier),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
         //Title(text = stringResource(R.string.max_rate_option2))
         Body(text = stringResource(R.string.max_rate_option2_description1))

@@ -25,6 +25,10 @@ class MainViewModel(
     val events: MutableLiveData<UiEvent> = MutableLiveData()
 
     init {
+        getInitialData()
+    }
+
+    private fun getInitialData() {
         _uiState.postValue(
             UiState(
                 OverviewUiModel(
@@ -72,6 +76,10 @@ class MainViewModel(
             StepPosition.ABOUT -> events.postValue(UiEvent.AboutApp)
             StepPosition.NOT_SET -> TODO()
         }
+    }
+
+    fun refresh() {
+        getInitialData()
     }
 
     data class UiState(

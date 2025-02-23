@@ -31,6 +31,7 @@
         <activity android:name=".ui.view.ZonesActivity" />
         <activity android:name=".ui.view.TrainingActivity" />
         <activity android:name=".ui.view.HardwareInfoActivity" />
+        <activity android:name=".ui.view.AboutAppActivity" />
 
     </application>
 

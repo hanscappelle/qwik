@@ -9,7 +9,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import be.hcpl.android.sportapp.ui.model.WebViewUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 
-
 @Composable
 fun InfoViewScreen(model: WebViewUiModel = WebViewUiModel("http://www.google.be")) {
     WebView(model)
@@ -37,7 +36,6 @@ fun WebView(model: WebViewUiModel) {
         }
     }, update = {
         model.assetId?.takeIf { it != 0 }?.let { id ->
-            //context.assets.open(assetId).bufferedReader().use { reader ->
             context.resources.openRawResource(id).bufferedReader().use { reader ->
                 it.loadData(reader.readText(), "text/html", "utf-8")
             }
