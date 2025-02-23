@@ -29,4 +29,6 @@
     <string name="max_rate_option2_description_result">Op basis van je invoer is onderstaande je maximale hartslag:</string>
     <string name="label_tested_max_rate">Resultaat</string>
     <string name="title_max_rate">Omslagpunt bepalen</string>
+    <string name="description_expand">uitvouwen</string>
+    <string name="description_collapse">samenvouwen</string>
 </resources>

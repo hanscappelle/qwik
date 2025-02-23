@@ -2,16 +2,23 @@ package be.hcpl.android.sportapp.ui.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import be.hcpl.android.sportapp.R
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -46,32 +53,22 @@ fun MaxRateScreen(
         Title(
             text = stringResource(R.string.max_rate_intro)
         )
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = { onSelectCalculate() },
-        ) {
-            Body(
-                modifier = Modifier.padding(16.dp),
-                text = stringResource(R.string.max_rate_option2),
-            )
-        }
-
+        Option(
+            text = stringResource(R.string.max_rate_option2),
+            onSelect = onSelectCalculate,
+            isVisible = model.calculateVisible,
+        )
         if (model.calculateVisible)
             MaxRateCalculateScreen(
                 model = model,
                 onYearChanged = { value -> onYearChanged(value) },
             )
 
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = { onSelectTest() },
-        ) {
-            Body(
-                modifier = Modifier.padding(16.dp),
-                text = stringResource(R.string.max_rate_option1),
-            )
-        }
-
+        Option(
+            text = stringResource(R.string.max_rate_option1),
+            onSelect = onSelectTest,
+            isVisible = model.calculateVisible,
+        )
         if (model.testVisible)
             MaxRateTestScreen(
                 model,
@@ -80,6 +77,37 @@ fun MaxRateScreen(
 
     }
 
+}
+
+@Composable
+fun Option(
+    text: String,
+    onSelect: () -> Unit,
+    isVisible: Boolean = false,
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        onClick = { onSelect() },
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Body(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .weight(1f),
+                text = text,
+            )
+            Icon(
+                if (isVisible) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                tint = primaryLight,
+                contentDescription = if (isVisible) stringResource(R.string.description_collapse) else stringResource(R.string.description_expand),
+                modifier = Modifier
+                    .padding(8.dp)
+                    .size(24.dp)
+            )
+        }
+    }
 }
 
 @Composable
@@ -218,8 +246,6 @@ fun NumericInput(
 @Composable
 fun MaxRateScreenPreview() {
     AppTheme {
-        Value("test")
         MaxRateScreen(MaxRateUiModel(true, true))
-
     }
 }
