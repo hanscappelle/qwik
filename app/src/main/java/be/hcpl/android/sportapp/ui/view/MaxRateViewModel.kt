@@ -2,17 +2,23 @@ package be.hcpl.android.sportapp.ui.view
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import be.hcpl.android.sportapp.domain.storage.LocalStorage
 import be.hcpl.android.sportapp.ui.screen.MaxRateUiModel
 import java.util.Calendar
 
-class MaxRateViewModel() : ViewModel() {
+class MaxRateViewModel(
+    private val storage: LocalStorage,
+) : ViewModel() {
 
-    val uiState: MutableLiveData<UiState> = MutableLiveData<UiState>()
+    val uiState: MutableLiveData<MaxRateUiModel> = MutableLiveData<MaxRateUiModel>()
     val events: MutableLiveData<UiEvent> = MutableLiveData<UiEvent>()
 
     init {
         uiState.postValue(
-            UiState(uiModel = MaxRateUiModel())
+            MaxRateUiModel(
+                calculatedResult = storage.getInt(KEY_CALCULATED_RESULT),
+                testedMaxRate = storage.getInt(KEY_TESTED_RESULT),
+            )
         )
     }
 
@@ -21,21 +27,18 @@ class MaxRateViewModel() : ViewModel() {
     }
 
     fun onSelectTest() {
-        uiState.value?.uiModel?.let { model ->
+        // update UI
+        uiState.value?.let { model ->
             uiState.postValue(
-                UiState(
-                    uiModel = model.copy(testVisible = !model.testVisible)
-                )
+                model.copy(testVisible = !model.testVisible)
             )
         }
     }
 
     fun onSelectCalculate() {
-        uiState.value?.uiModel?.let { model ->
+        uiState.value?.let { model ->
             uiState.postValue(
-                UiState(
-                    uiModel = model.copy(calculateVisible = !model.calculateVisible)
-                )
+                model.copy(calculateVisible = !model.calculateVisible)
             )
         }
     }
@@ -43,36 +46,37 @@ class MaxRateViewModel() : ViewModel() {
     fun onInputChanged(year: Int) {
         val age = Calendar.getInstance().get(Calendar.YEAR) - year
         val calculatedResult = (208 - 0.7 * age).toInt()
-        uiState.value?.uiModel?.let { model ->
+        // update in storage
+        storage.store(KEY_CALCULATED_RESULT, calculatedResult)
+        // update UI
+        uiState.value?.let { model ->
             uiState.postValue(
-                UiState(
-                    uiModel = model.copy(
-                        birthYear = year,
-                        calculatedResult = if (calculatedResult > 0) calculatedResult else null,
-                    )
+                model.copy(
+                    birthYear = year,
+                    calculatedResult = if (calculatedResult > 0) calculatedResult else null,
                 )
             )
         }
     }
 
     fun onInputMaxChanged(testValue: Int) {
-        uiState.value?.uiModel?.let { model ->
+        storage.store(KEY_TESTED_RESULT, testValue)
+        uiState.value?.let { model ->
             uiState.postValue(
-                UiState(
-                    uiModel = model.copy(
-                        testedMaxRate = testValue,
-                    )
+                model.copy(
+                    testedMaxRate = testValue,
                 )
             )
         }
     }
 
-    data class UiState(
-        val uiModel: MaxRateUiModel,
-    )
-
     sealed class UiEvent {
         data object Back : UiEvent()
+    }
+
+    companion object {
+        const val KEY_CALCULATED_RESULT = "KEY_CALCULATED_RESULT"
+        const val KEY_TESTED_RESULT = "KEY_TESTED_RESULT"
     }
 }
 
