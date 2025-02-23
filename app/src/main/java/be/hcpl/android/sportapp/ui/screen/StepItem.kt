@@ -49,7 +49,7 @@ fun StepItem(
                 Text(
                     style = AppTypography.titleLarge,
                     text = model.label,
-                    color = customColor1Light,
+                    //color = customColor1Light,
                 )
                 Text(
                     style = AppTypography.bodyLarge,
