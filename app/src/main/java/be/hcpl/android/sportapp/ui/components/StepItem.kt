@@ -1,4 +1,4 @@
-package be.hcpl.android.sportapp.ui.screen
+package be.hcpl.android.sportapp.ui.components
 
 import be.hcpl.android.sportapp.R
 

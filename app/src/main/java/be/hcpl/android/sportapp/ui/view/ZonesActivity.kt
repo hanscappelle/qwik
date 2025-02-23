@@ -2,7 +2,9 @@ package be.hcpl.android.sportapp.ui.view
 
 import be.hcpl.android.sportapp.R
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -25,15 +27,20 @@ class ZonesActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.uiState.observe(this, Observer<ZoneVisualUiModel> { state -> onChangeObserved(state) })
+        viewModel.uiState.observe(this, Observer<ZoneVisualUiModel?> { state -> onChangeObserved(state) })
     }
 
-    private fun onChangeObserved(uiModel: ZoneVisualUiModel) {
+    override fun onResume() {
+        super.onResume()
+        viewModel.updateOptimalisation(resources.configuration.orientation)
+    }
+
+    private fun onChangeObserved(uiModel: ZoneVisualUiModel?) {
         setContent {
             AppScaffold(
                 title = stringResource(R.string.title_zones),
                 onBack = { finish() }) {
-                ZoneVisualisationScreen(uiModel)
+                uiModel?.let {ZoneVisualisationScreen(uiModel) }
             }
         }
     }

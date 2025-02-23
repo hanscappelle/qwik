@@ -24,6 +24,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import be.hcpl.android.sportapp.ui.components.Body
+import be.hcpl.android.sportapp.ui.components.HeadLine
+import be.hcpl.android.sportapp.ui.components.NumericInput
+import be.hcpl.android.sportapp.ui.components.Title
+import be.hcpl.android.sportapp.ui.components.Value
 import be.hcpl.android.sportapp.ui.model.MaxRateUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 import be.hcpl.android.sportapp.ui.theme.AppTypography
@@ -47,7 +52,7 @@ fun MaxRateScreen(
             text = stringResource(R.string.max_rate_intro)
         )
         Option(
-            text = "${stringResource(R.string.max_rate_option2)} (${model.calculatedResult?:"-"})",
+            text = "${stringResource(R.string.max_rate_option2)} (${model.calculatedResult ?: "-"})",
             onSelect = onSelectCalculate,
             isVisible = model.calculateVisible,
         )
@@ -58,7 +63,7 @@ fun MaxRateScreen(
             )
 
         Option(
-            text = "${stringResource(R.string.max_rate_option1)} (${model.testedMaxRate?:"-"})",
+            text = "${stringResource(R.string.max_rate_option1)} (${model.testedMaxRate ?: "-"})",
             onSelect = onSelectTest,
             isVisible = model.testVisible,
         )
@@ -180,59 +185,6 @@ fun MaxRateCalculateScreen(
             )
         }
     }
-}
-
-@Composable
-fun Title(
-    text: String,
-    modifier: Modifier = Modifier,
-) {
-    Text(
-        modifier = modifier,
-        text = text,
-        style = AppTypography.titleLarge
-    )
-}
-
-@Composable
-fun Body(
-    text: String,
-    modifier: Modifier = Modifier,
-) {
-    Text(
-        modifier = modifier,
-        text = text,
-        style = AppTypography.bodyLarge
-    )
-}
-
-@Composable
-fun Value(
-    text: String,
-    modifier: Modifier = Modifier,
-) {
-    Text(
-        modifier = modifier,
-        text = text,
-        style = AppTypography.headlineLarge,
-        color = primaryLight,
-    )
-}
-
-@Composable
-fun NumericInput(
-    value: Int? = null,
-    onValueChange: (Int) -> Unit,
-    label: String? = null,
-) {
-    TextField(
-        value = value?.toString().orEmpty(),
-        onValueChange = { value -> onValueChange(value.toIntOrNull() ?: 0) },
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-        label = {
-            label?.let { Text(text = it) }
-        }
-    )
 }
 
 @Preview(showBackground = true)

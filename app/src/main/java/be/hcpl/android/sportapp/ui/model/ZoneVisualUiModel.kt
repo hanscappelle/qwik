@@ -3,6 +3,7 @@ package be.hcpl.android.sportapp.ui.model
 import androidx.compose.ui.graphics.Color
 
 data class ZoneVisualUiModel(
+    val optimizeLayout: Boolean = false,
     val maxRate: Int = 180,
     val zones: List<Zone> = emptyList(),
 )

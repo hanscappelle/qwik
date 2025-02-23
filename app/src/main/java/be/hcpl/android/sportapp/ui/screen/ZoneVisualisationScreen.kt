@@ -10,15 +10,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.R
+import be.hcpl.android.sportapp.ui.components.Body
+import be.hcpl.android.sportapp.ui.components.HeadLine
+import be.hcpl.android.sportapp.ui.components.BodyLarge
 import be.hcpl.android.sportapp.ui.model.Zone
 import be.hcpl.android.sportapp.ui.model.ZoneVisualUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
@@ -26,36 +29,46 @@ import be.hcpl.android.sportapp.ui.theme.customColor1
 import be.hcpl.android.sportapp.ui.theme.customColor2
 import be.hcpl.android.sportapp.ui.theme.customColor3
 import be.hcpl.android.sportapp.ui.theme.customColor4
-import be.hcpl.android.sportapp.ui.theme.customColor5
-import be.hcpl.android.sportapp.ui.theme.customColor6
 import be.hcpl.android.sportapp.ui.theme.customColor9
+
+const val HEIGHT_LANDSCAPE = 180
+const val HEIGHT_PORTRAIT = 100
 
 @Composable
 fun ZoneVisualisationScreen(
     model: ZoneVisualUiModel,
 ) {
-
     Column(
         modifier = Modifier
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Body(
-            text = stringResource(R.string.zones_intro)
-        )
+        val maxHeight = if (!model.optimizeLayout) {
+            // not optimized for graph layout
+            // height is limited but also contains text
+            BodyLarge(text = stringResource(R.string.zones_intro))
+            HEIGHT_PORTRAIT
+        } else {
+            HEIGHT_LANDSCAPE
+        }
 
-        Title(
+        HeadLine(
             text = stringResource(R.string.zones_value, model.maxRate)
         )
 
-        Body(
-            text = stringResource(R.string.zones_visual_description)
-        )
+        Card {
+            Body(
+                modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxWidth(),
+                text = if (!model.optimizeLayout) stringResource(R.string.zones_landscape) else stringResource(R.string.zones_portrait)
+            )
+        }
 
         // zones bpm indications
-        Box() {
-            Text(
+        Box {
+            Body(
                 modifier = Modifier.align(Alignment.CenterEnd),
                 text = "${model.maxRate}|",
             )
@@ -64,7 +77,7 @@ fun ZoneVisualisationScreen(
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
-                Text(
+                Body(
                     text = "",
                     modifier = Modifier.weight(1f / (model.zones.count())),
                 )
@@ -90,25 +103,30 @@ fun ZoneVisualisationScreen(
         ) {
             var sum = 0f
             model.zones.forEachIndexed { index, zone ->
-                sum = sum + (zone.weight * 100)
-                val from = (sum / 100 * model.maxRate).toInt()
+                sum = sum + (zone.weight * maxHeight)
                 Box(
                     modifier = Modifier
-                        //.weight(zone.weight)
                         .weight(1f / model.zones.count())
-                        //.height((zone.weight * 100).dp)
                         .height(sum.dp)
                         .background(color = zone.color)
                 ) {
-                    Text(
+                    Body(
                         modifier = Modifier.align(Alignment.BottomCenter),
-                        //text = "${zone.label} ${if (index > 0) from else ""}"
                         text = zone.label
                     )
                 }
             }
         }
+
+        // extra info
+        if (!model.optimizeLayout) {
+            HeadLine(text = stringResource(R.string.zones_visual_description_header))
+            BodyLarge(text = stringResource(R.string.zones_visual_description1))
+            BodyLarge(text = stringResource(R.string.zones_visual_description2))
+            BodyLarge(text = stringResource(R.string.zones_visual_description3))
+        }
     }
+
 
 }
 

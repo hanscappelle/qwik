@@ -4,16 +4,17 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.domain.model.StepPosition
+import be.hcpl.android.sportapp.ui.components.Body
+import be.hcpl.android.sportapp.ui.components.HeadLine
+import be.hcpl.android.sportapp.ui.components.StepItem
 import be.hcpl.android.sportapp.ui.model.OverviewUiModel
 import be.hcpl.android.sportapp.ui.model.StepItemUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
-import be.hcpl.android.sportapp.ui.theme.AppTypography
 
 @Composable
 fun StepOverviewScreen(
@@ -27,15 +28,8 @@ fun StepOverviewScreen(
             .padding(16.dp)
     ) {
         item {
-            Text(
-                style = AppTypography.headlineLarge,
-                text = model?.welcomeTitle.orEmpty(),
-            )
-            Text(
-                style = AppTypography.bodyLarge,
-                //style = AppTypography.titleLarge,
-                text = model?.welcomeText.orEmpty()
-            )
+            HeadLine(text = model?.welcomeTitle.orEmpty())
+            Body(text = model?.welcomeText.orEmpty())
         }
         model?.steps?.forEach {
             item {

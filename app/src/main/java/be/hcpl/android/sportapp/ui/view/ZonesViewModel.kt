@@ -1,6 +1,6 @@
 package be.hcpl.android.sportapp.ui.view
 
-import androidx.compose.ui.graphics.Color
+import android.content.res.Configuration
 import be.hcpl.android.sportapp.R
 
 import androidx.lifecycle.MutableLiveData
@@ -13,7 +13,6 @@ import be.hcpl.android.sportapp.ui.theme.customColor1
 import be.hcpl.android.sportapp.ui.theme.customColor2
 import be.hcpl.android.sportapp.ui.theme.customColor3
 import be.hcpl.android.sportapp.ui.theme.customColor4
-import be.hcpl.android.sportapp.ui.theme.customColor8
 import be.hcpl.android.sportapp.ui.theme.customColor9
 
 class ZonesViewModel(
@@ -21,7 +20,7 @@ class ZonesViewModel(
     storage: LocalStorage,
 ) : ViewModel() {
 
-    val uiState: MutableLiveData<ZoneVisualUiModel> = MutableLiveData()
+    val uiState: MutableLiveData<ZoneVisualUiModel?> = MutableLiveData()
 
     init {
         val testedResult = storage.getInt(MaxRateViewModel.KEY_TESTED_RESULT)
@@ -38,6 +37,16 @@ class ZonesViewModel(
                 )
             )
         )
+    }
+
+    fun updateOptimalisation(orientation: Int) {
+        uiState.value?.let {
+            uiState.postValue(
+                it.copy(
+                    optimizeLayout = orientation == Configuration.ORIENTATION_LANDSCAPE,
+                )
+            )
+        }
     }
 
 }
