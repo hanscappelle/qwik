@@ -7,7 +7,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import be.hcpl.android.sportapp.ui.model.ZoneVisualUiModel
 import be.hcpl.android.sportapp.ui.screen.AppScaffold
 import be.hcpl.android.sportapp.ui.screen.StepOverviewScreen
@@ -23,11 +25,14 @@ class ZonesActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.uiState.observe(this, Observer<ZoneVisualUiModel> { state -> onChangeObserved(state) })
     }
 
     private fun onChangeObserved(uiModel: ZoneVisualUiModel) {
         setContent {
-            AppScaffold(onBack = { finish() }) {
+            AppScaffold(
+                title = stringResource(R.string.title_zones),
+                onBack = { finish() }) {
                 ZoneVisualisationScreen(uiModel)
             }
         }
