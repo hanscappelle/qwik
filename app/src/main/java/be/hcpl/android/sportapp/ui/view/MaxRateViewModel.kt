@@ -16,8 +16,8 @@ class MaxRateViewModel(
     init {
         uiState.postValue(
             MaxRateUiModel(
-                calculatedResult = storage.getInt(KEY_CALCULATED_RESULT),
-                testedMaxRate = storage.getInt(KEY_TESTED_RESULT),
+                calculatedResult = storage.getInt(KEY_CALCULATED_RESULT).takeIf { it > 0 },
+                testedMaxRate = storage.getInt(KEY_TESTED_RESULT).takeIf { it > 0 },
             )
         )
     }
@@ -52,8 +52,8 @@ class MaxRateViewModel(
         uiState.value?.let { model ->
             uiState.postValue(
                 model.copy(
-                    birthYear = year,
-                    calculatedResult = if (calculatedResult > 0) calculatedResult else null,
+                    birthYear = year.takeIf { it > 0 },
+                    calculatedResult = calculatedResult.takeIf { it > 0 },
                 )
             )
         }
@@ -64,7 +64,7 @@ class MaxRateViewModel(
         uiState.value?.let { model ->
             uiState.postValue(
                 model.copy(
-                    testedMaxRate = testValue,
+                    testedMaxRate = testValue.takeIf { it > 0 },
                 )
             )
         }

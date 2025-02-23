@@ -54,7 +54,7 @@ fun MaxRateScreen(
             text = stringResource(R.string.max_rate_intro)
         )
         Option(
-            text = stringResource(R.string.max_rate_option2),
+            text = "${stringResource(R.string.max_rate_option2)} (${model.calculatedResult?:"-"})",
             onSelect = onSelectCalculate,
             isVisible = model.calculateVisible,
         )
@@ -65,7 +65,7 @@ fun MaxRateScreen(
             )
 
         Option(
-            text = stringResource(R.string.max_rate_option1),
+            text = "${stringResource(R.string.max_rate_option1)} (${model.testedMaxRate?:"-"})",
             onSelect = onSelectTest,
             isVisible = model.testVisible,
         )
