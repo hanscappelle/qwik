@@ -14,13 +14,13 @@
     <string name="title_app">Hartslag Zones</string>
     <string name="description_navigate_back">terug</string>
     <string name="title_hardware_info">Welke Hartslag Monitor</string>
-    <string name="max_rate_intro">Om je maximale hartslag te bepalen heb je 2 opties. Je kan deze op basis van je leeftijd schatten (optie 1 hieronder). Of je kan die meten door een test uit te voeren (optie 2). </string>
-    <string name="max_rate_option1">Optie 2: Doe de test en monitor je hartslag</string>
+    <string name="max_rate_intro">Om je maximale hartslag te bepalen heb je 2 opties. Je kan deze op basis van je leeftijd berekenen (optie 1 hieronder). Of je kan die meten tijdens een intensieve sport sessie (optie 2).</string>
+    <string name="max_rate_option1">Optie 2: Doe de test en monitor je hartslag.</string>
     <string name="max_rate_option1_description1">1. Gebruik een hartslagmeter en begin te sporten. Belangrijk is langzaam op te bouwen de eerste 10 tot 20 minuten.</string>
     <string name="max_rate_option1_description2">2. Eens op temperatuur ga je zo intensief mogelijk sporten maar wel op een constant tempo dat je 10 tot 20 minuten kunt volhouden.</string>
     <string name="max_rate_option1_description3">3. Nu is het tijd om terug 10 tot 20 minuten rustig af te bouwen.</string>
     <string name="max_rate_option1_description4">4. Als laatste stap kijk je naar de hartslag registratie van de intensieve periode. Daarvan neem je het gemiddelde, dit is je eigen omslagpunt.</string>
-    <string name="max_rate_option1_extra">Een hoge of lage waarde zegt verder niets over je conditie.\n\nDeze test kun je jaarlijks herhalen om zo je trainingen aan te passen.</string>
+    <string name="max_rate_option1_extra">Een hoge of lage waarde zegt verder niets over je conditie.\n\nDeze kan wel veranderen door omstandigheden, ziekte of leeftijd.\n\nDeze test kun je best jaarlijks herhalen om zo je trainingen aan te passen.</string>
     <string name="max_rate_extra_title">Ook goed om weten</string>
     <string name="max_rate_option2">Optie 1: bereken het omslagpunt op basis van je leeftijd.</string>
     <string name="max_rate_option2_description1">Hiervoor moeten we je leeftijd kennen. Geef hiervoor eerst je geboortejaar.</string>

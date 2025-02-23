@@ -4,11 +4,13 @@ import be.hcpl.android.sportapp.R
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import be.hcpl.android.sportapp.ui.i18n.Literals
+import be.hcpl.android.sportapp.ui.model.WebViewUiModel
 
 class InfoViewModel(
-    private val url: String?,
     private val title: String?,
-    private val literals: Literals,
+    private val url: String?,
+    private val assetId: Int?,
+    literals: Literals,
 ) : ViewModel() {
 
     val uiState: MutableLiveData<UiState> = MutableLiveData<UiState>()
@@ -20,7 +22,10 @@ class InfoViewModel(
         uiState.postValue(
             UiState(
                 title = title ?: literals.get(R.string.title_app),
-                url = url ?: "https://www.google.be"
+                webModel = WebViewUiModel(
+                    assetId = assetId,
+                    url = url ?: "https://www.google.be",
+                )
             )
         )
     }
@@ -31,7 +36,7 @@ class InfoViewModel(
 
     data class UiState(
         val title: String,
-        val url: String,
+        val webModel: WebViewUiModel,
     )
 
     sealed class UiEvent {

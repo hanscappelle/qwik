@@ -23,8 +23,9 @@ class InfoActivity : ComponentActivity() {
 
     private val viewModel: InfoViewModel by viewModel {
         parametersOf(
-            intent.getStringExtra(KEY_URL),
             intent.getStringExtra(KEY_TITLE),
+            intent.getStringExtra(KEY_URL),
+            intent.getIntExtra(KEY_ASSET_ID, 0),
         )
     }
 
@@ -46,14 +47,15 @@ class InfoActivity : ComponentActivity() {
                 title = uiState.title,
                 onBack = { viewModel.back() },
             ) {
-                InfoViewScreen(uiState.url)
+                InfoViewScreen(uiState.webModel)
             }
 
         }
     }
 
     companion object {
-        const val KEY_URL = "KEY_URL"
         const val KEY_TITLE = "KEY_TITLE"
+        const val KEY_URL = "KEY_URL"
+        const val KEY_ASSET_ID = "KEY_ASSET_ID"
     }
 }

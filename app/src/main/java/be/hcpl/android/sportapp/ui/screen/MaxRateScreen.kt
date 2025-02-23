@@ -111,7 +111,7 @@ fun MaxRateTestScreen(
 ) {
     Column(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(horizontal = 16.dp)
             .then(modifier),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
@@ -149,7 +149,7 @@ fun MaxRateCalculateScreen(
 ) {
     Column(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(horizontal = 16.dp)
             .then(modifier),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {

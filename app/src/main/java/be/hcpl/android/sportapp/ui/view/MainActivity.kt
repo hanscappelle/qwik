@@ -63,6 +63,10 @@ class MainActivity : ComponentActivity() {
                         InfoActivity.KEY_TITLE,
                         getString(R.string.monitors_label)
                     )
+                    putExtra(
+                        InfoActivity.KEY_ASSET_ID,
+                        R.raw.heart_rate_monitors,
+                    )
                 })
             }
 
@@ -75,6 +79,10 @@ class MainActivity : ComponentActivity() {
                     putExtra(
                         InfoActivity.KEY_TITLE,
                         getString(R.string.about_label)
+                    )
+                    putExtra(
+                        InfoActivity.KEY_ASSET_ID,
+                        R.raw.about_app,
                     )
                 })
             }
