@@ -24,6 +24,9 @@ import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.ui.model.StepItemUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 import be.hcpl.android.sportapp.ui.theme.AppTypography
+import be.hcpl.android.sportapp.ui.theme.customColor1Dark
+import be.hcpl.android.sportapp.ui.theme.customColor1Light
+import be.hcpl.android.sportapp.ui.theme.customColor3Light
 import be.hcpl.android.sportapp.ui.theme.primaryLight
 import be.hcpl.android.sportapp.ui.theme.tertiaryLight
 
@@ -51,12 +54,11 @@ fun StepItem(
                 Text(
                     style = AppTypography.titleLarge,
                     text = model.label,
-                    color = primaryLight,
+                    color = customColor1Light,
                 )
                 Text(
                     style = AppTypography.bodyLarge,
                     text = model.description,
-                    color = tertiaryLight,
                 )
             }
         }
@@ -69,7 +71,7 @@ fun CompletionIndicator(completed: Boolean, modifier: Modifier) {
         Icon(
             Icons.Outlined.Check,
             modifier = modifier,
-            tint = Color.Green,
+            tint = customColor1Light,
             contentDescription = stringResource(id = R.string.content_description_checked),
         )
 }
