@@ -6,12 +6,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import be.hcpl.android.sportapp.domain.model.StepPosition
+import be.hcpl.android.sportapp.domain.storage.LocalStorage
 import be.hcpl.android.sportapp.ui.i18n.Literals
 import be.hcpl.android.sportapp.ui.model.OverviewUiModel
 import be.hcpl.android.sportapp.ui.model.StepItemUiModel
 
 class MainViewModel(
     private val literals: Literals,
+    private val storage: LocalStorage,
 ) : ViewModel() {
 
     //private val _uiState = MutableStateFlow<UiState>(UiState(OverviewUiModel(emptyList())))
@@ -29,26 +31,26 @@ class MainViewModel(
                     welcomeTitle = literals.get(R.string.welcome_title),
                     welcomeText = literals.get(R.string.welcome_text),
                     steps = listOf(
-                        // TODO get these from domain, including completion
-                        StepPosition.HART_RATE_MONITORS.toUiModel(false),
-                        StepPosition.MAX_HART_RATE.toUiModel(false),
-                        StepPosition.VISUALISE_ZONES.toUiModel(false),
-                        StepPosition.ABOUT.toUiModel(false),
+                        StepPosition.HART_RATE_MONITORS.toUiModel(),
+                        StepPosition.MAX_HART_RATE.toUiModel(),
+                        StepPosition.VISUALISE_ZONES.toUiModel(),
+                        StepPosition.ABOUT.toUiModel(),
                     )
                 )
             )
         )
     }
 
-    private fun StepPosition.toUiModel(completed: Boolean) = StepItemUiModel(
+    private fun StepPosition.toUiModel() = StepItemUiModel(
         step = this,
         label = literals.get(labelId),
         description = literals.get(descriptionId),
-        completed = completed,
+        completed = storage.getBoolean(this.name),
     )
 
     fun onSelect(step: StepPosition) {
         // update completion
+        storage.store(step.name, true)
         _uiState.value?.let { state ->
             _uiState.postValue(
                 state.copy(

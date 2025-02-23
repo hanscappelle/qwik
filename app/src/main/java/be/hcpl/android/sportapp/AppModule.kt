@@ -1,5 +1,6 @@
 package be.hcpl.android.sportapp
 
+import be.hcpl.android.sportapp.domain.storage.LocalStorage
 import be.hcpl.android.sportapp.ui.i18n.Literals
 import be.hcpl.android.sportapp.ui.view.InfoViewModel
 import be.hcpl.android.sportapp.ui.view.MainViewModel
@@ -15,4 +16,5 @@ val appModule = module {
     viewModelOf(::MaxRateViewModel)
 
     factoryOf(::Literals)
+    factoryOf(::LocalStorage)
 }
