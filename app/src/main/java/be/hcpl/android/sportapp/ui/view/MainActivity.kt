@@ -72,6 +72,7 @@ class MainActivity : ComponentActivity() {
 
             UiEvent.MaxRate -> startActivity(Intent(this, MaxRateActivity::class.java))
             UiEvent.Zones -> startActivity(Intent(this, ZonesActivity::class.java))
+            UiEvent.Training -> startActivity(Intent(this, TrainingActivity::class.java))
         }
     }
 }

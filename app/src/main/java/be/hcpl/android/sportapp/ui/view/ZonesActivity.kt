@@ -27,7 +27,7 @@ class ZonesActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.uiState.observe(this, Observer<ZoneVisualUiModel?> { state -> onChangeObserved(state) })
+        viewModel.uiState.observe(this, Observer<ZoneVisualUiModel> { state -> onChangeObserved(state) })
     }
 
     override fun onResume() {
@@ -35,12 +35,12 @@ class ZonesActivity : ComponentActivity() {
         viewModel.updateOptimalisation(resources.configuration.orientation)
     }
 
-    private fun onChangeObserved(uiModel: ZoneVisualUiModel?) {
+    private fun onChangeObserved(uiModel: ZoneVisualUiModel) {
         setContent {
             AppScaffold(
                 title = stringResource(R.string.title_zones),
                 onBack = { finish() }) {
-                uiModel?.let {ZoneVisualisationScreen(uiModel) }
+                ZoneVisualisationScreen(uiModel)
             }
         }
     }

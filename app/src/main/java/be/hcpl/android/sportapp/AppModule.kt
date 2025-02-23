@@ -5,6 +5,7 @@ import be.hcpl.android.sportapp.ui.i18n.Literals
 import be.hcpl.android.sportapp.ui.view.InfoViewModel
 import be.hcpl.android.sportapp.ui.view.MainViewModel
 import be.hcpl.android.sportapp.ui.view.MaxRateViewModel
+import be.hcpl.android.sportapp.ui.view.TrainingViewModel
 import be.hcpl.android.sportapp.ui.view.ZonesViewModel
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.viewModelOf
@@ -16,6 +17,7 @@ val appModule = module {
     viewModelOf(::InfoViewModel)
     viewModelOf(::MaxRateViewModel)
     viewModelOf(::ZonesViewModel)
+    viewModelOf(::TrainingViewModel)
 
     factoryOf(::Literals)
     factoryOf(::LocalStorage)

@@ -47,4 +47,6 @@
     <string name="zones_visual_description2">Zones D1 en D2 zijn voor trainingen die de focus hebben op opbouw en duur en volhouden van tempo.</string>
     <string name="zones_visual_description3">Zone D3, D4 en hoger zijn voor het opbouwen van kracht. Denk aan korte sprints.</string>
     <string name="zones_visual_description_header">Over de verschillende zones</string>
+    <string name="title_training_programs">Voorbeelden Training Programma\'s</string>
+    <string name="training_intro">Op basis van deze hartslag kun je nu verschillende trainingen opstellen. Hier zijn een paar voorbeelden.</string>
 </resources>

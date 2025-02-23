@@ -29,6 +29,7 @@
         <activity android:name=".ui.view.InfoActivity" />
         <activity android:name=".ui.view.MaxRateActivity" />
         <activity android:name=".ui.view.ZonesActivity" />
+        <activity android:name=".ui.view.TrainingActivity" />
 
     </application>
 
