@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextDecoration
@@ -30,12 +31,13 @@ import uz.kjuraev.linkify.LinkifyText
 fun Title(
     text: String,
     modifier: Modifier = Modifier,
+    style: TextStyle = AppTypography.titleLarge,
     fontWeight: FontWeight = FontWeight.Normal,
 ) {
     Text(
         modifier = modifier,
         text = text,
-        style = AppTypography.titleLarge,
+        style = style,
         fontWeight = fontWeight
     )
 }
@@ -43,11 +45,13 @@ fun Title(
 @Composable
 fun TitleBold(
     text: String,
+    style: TextStyle = AppTypography.titleLarge,
     modifier: Modifier = Modifier,
 ) {
     Title(
         modifier = modifier,
         text = text,
+        style = style,
         fontWeight = FontWeight.Bold,
     )
 }

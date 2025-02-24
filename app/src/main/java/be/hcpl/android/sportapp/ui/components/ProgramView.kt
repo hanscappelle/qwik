@@ -1,11 +1,15 @@
 package be.hcpl.android.sportapp.ui.components
 
+import android.R.style.Theme
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,13 +21,24 @@ import be.hcpl.android.sportapp.domain.model.Program
 import be.hcpl.android.sportapp.domain.model.RateZone
 import be.hcpl.android.sportapp.ui.model.ProgramUiModel
 import be.hcpl.android.sportapp.ui.theme.AppTheme
+import be.hcpl.android.sportapp.ui.theme.AppTypography
+import be.hcpl.android.sportapp.ui.theme.inverseOnSurfaceDark
+import be.hcpl.android.sportapp.ui.theme.inverseOnSurfaceLight
+import be.hcpl.android.sportapp.ui.theme.inverseSurfaceDark
+import be.hcpl.android.sportapp.ui.theme.inverseSurfaceLight
+import be.hcpl.android.sportapp.ui.theme.onSurfaceDark
 import be.hcpl.android.sportapp.ui.theme.secondaryLight
+import be.hcpl.android.sportapp.ui.theme.surfaceDark
+import be.hcpl.android.sportapp.ui.theme.surfaceLight
 
 @Composable
 fun ProgramView(
     model: ProgramUiModel,
     modifier: Modifier = Modifier,
 ) {
+
+    val headerBackground = if (isSystemInDarkTheme()) inverseSurfaceDark else inverseSurfaceLight
+    val headerText = if (isSystemInDarkTheme()) inverseOnSurfaceDark else inverseOnSurfaceLight
 
     Column(
         modifier = modifier
@@ -32,8 +47,9 @@ fun ProgramView(
         TitleBold(
             modifier = Modifier
                 .fillMaxWidth()
-                //.background(color = customColor1)
+                .background(color = headerBackground)
                 .padding(horizontal = 8.dp),
+            style = AppTypography.titleLarge.copy(color = headerText),
             text = "${model.program.title} (total ${model.program.blocks.map { it.repeats * it.durationMin }.sum()} min)"
         )
 
