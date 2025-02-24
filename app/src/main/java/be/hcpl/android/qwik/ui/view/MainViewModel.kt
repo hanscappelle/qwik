@@ -1,6 +1,5 @@
 package be.hcpl.android.qwik.ui.view
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import be.hcpl.android.qwik.R
@@ -16,12 +15,10 @@ class MainViewModel(
 ) : ViewModel() {
 
     // alternative approach is to use stateflow and pass viewModel to compose directly
-    //private val _uiState = MutableStateFlow<UiState>(UiState(OverviewUiModel(emptyList())))
-    //val uiState = _uiState.asStateFlow()
+    //private val uiState = MutableStateFlow<UiState>(UiState(OverviewUiModel(emptyList())))
+    //val uiState = uiState.asStateFlow()
 
-    private val _uiState = MutableLiveData<UiState>()
-    val uiState: LiveData<UiState>
-
+    val uiState: MutableLiveData<OverviewUiModel> = MutableLiveData<OverviewUiModel>()
     val events: MutableLiveData<UiEvent> = MutableLiveData()
 
     init {
@@ -29,18 +26,16 @@ class MainViewModel(
     }
 
     private fun getInitialData() {
-        _uiState.postValue(
-            UiState(
-                OverviewUiModel(
-                    welcomeTitle = literals.get(R.string.welcome_title),
-                    welcomeText = literals.get(R.string.welcome_text),
-                    steps = listOf(
-                        StepPosition.HART_RATE_MONITORS.toUiModel(),
-                        StepPosition.MAX_HART_RATE.toUiModel(),
-                        StepPosition.VISUALISE_ZONES.toUiModel(),
-                        StepPosition.TRAINING_PROGRAMS.toUiModel(),
-                        StepPosition.ABOUT.toUiModel(),
-                    )
+        uiState.postValue(
+            OverviewUiModel(
+                welcomeTitle = literals.get(R.string.welcome_title),
+                welcomeText = literals.get(R.string.welcome_text),
+                steps = listOf(
+                    StepPosition.HART_RATE_MONITORS.toUiModel(),
+                    StepPosition.MAX_HART_RATE.toUiModel(),
+                    StepPosition.VISUALISE_ZONES.toUiModel(),
+                    StepPosition.TRAINING_PROGRAMS.toUiModel(),
+                    StepPosition.ABOUT.toUiModel(),
                 )
             )
         )
@@ -58,12 +53,10 @@ class MainViewModel(
         // update completion
         storage.store(step.name, true)
         // and update UI
-        _uiState.value?.let { state ->
-            _uiState.postValue(
+        uiState.value?.let { state ->
+            uiState.postValue(
                 state.copy(
-                    overview = state.overview?.copy(
-                        steps = state.overview.steps.map { it -> if (it.step == step) it.copy(completed = true) else it }
-                    )
+                    steps = state.steps.map { it -> if (it.step == step) it.copy(completed = true) else it }
                 )
             )
         }
@@ -81,10 +74,6 @@ class MainViewModel(
     fun refresh() {
         getInitialData()
     }
-
-    data class UiState(
-        val overview: OverviewUiModel?,
-    )
 
     sealed class UiEvent {
         data object InfoView : UiEvent()

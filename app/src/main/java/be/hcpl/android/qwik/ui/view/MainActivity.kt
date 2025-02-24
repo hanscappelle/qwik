@@ -5,11 +5,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.lifecycle.Observer
+import be.hcpl.android.qwik.ui.model.OverviewUiModel
 import be.hcpl.android.qwik.ui.screen.AppScaffold
 import be.hcpl.android.qwik.ui.screen.StepOverviewScreen
 import be.hcpl.android.qwik.ui.view.MainViewModel.UiEvent
 import be.hcpl.android.qwik.ui.view.MainViewModel.UiEvent.InfoView
-import be.hcpl.android.qwik.ui.view.MainViewModel.UiState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.uiState.observe(this, Observer<UiState> { state -> onChangeObserved(state) })
+        viewModel.uiState.observe(this, Observer<OverviewUiModel> { state -> onChangeObserved(state) })
         viewModel.events.observe(this, Observer<UiEvent> { event -> onEvent(event) })
     }
 
@@ -27,10 +27,10 @@ class MainActivity : ComponentActivity() {
         viewModel.refresh()
     }
 
-    private fun onChangeObserved(uiState: UiState) {
+    private fun onChangeObserved(uiState: OverviewUiModel) {
         setContent {
             AppScaffold {
-                StepOverviewScreen(uiState.overview, onSelect = { id -> viewModel.onSelect(id) })
+                StepOverviewScreen(uiState, onSelect = { id -> viewModel.onSelect(id) })
             }
         }
     }
