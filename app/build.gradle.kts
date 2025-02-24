@@ -5,14 +5,16 @@ plugins {
 }
 
 android {
-    namespace = "be.hcpl.android.sportapp"
+    //namespace = "be.hcpl.android.sportapp"
+    namespace = "be.hcpl.android.qwik"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "be.hcpl.android.sportapp"
+        //applicationId = "be.hcpl.android.sportapp"
+        applicationId = "be.hcpl.android.qwik"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
+        versionCode = 2
         versionName = "0.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
