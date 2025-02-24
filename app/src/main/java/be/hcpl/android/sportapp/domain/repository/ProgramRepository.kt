@@ -22,7 +22,7 @@ class LocalProgramRepository(
         return listOf(
 
             Program(
-                title = literals.get(R.string.program_cadans_title),
+                title = literals.get(R.string.program_title_cadans),
                 blocks = listOf(
                     Block(repeats = 1, literals.get(R.string.program_warm_up), zone = RateZone.D0, durationMin = 10),
                     Block(4, literals.get(R.string.program_cadans_high), zone = RateZone.D2, durationMin = 5),
@@ -32,23 +32,73 @@ class LocalProgramRepository(
             ),
 
             Program(
-                title = "Duur-Training",
+                title = literals.get(R.string.program_title_endurance),
                 blocks = listOf(
-                    Block(repeats = 1, "warm up", zone = RateZone.D0, durationMin = 10),
-                    Block(1, "volhouden", zone = RateZone.D1, durationMin = 100),
-                    Block(1, "cool down", zone = RateZone.D0, durationMin = 10),
+                    Block(repeats = 1, literals.get(R.string.program_warm_up), zone = RateZone.D0, durationMin = 10),
+                    Block(1, literals.get(R.string.program_endurance), zone = RateZone.D1, durationMin = 100),
+                    Block(1, literals.get(R.string.program_cool_down), zone = RateZone.D0, durationMin = 10),
                 )
             ),
 
             Program(
-                title = "Kracht-Training",
+                title = literals.get(R.string.program_title_power),
                 blocks = listOf(
-                    Block(repeats = 1, "warm up", zone = RateZone.D0, durationMin = 10),
-                    Block(4, "low cadans 80-90 rpm", zone = RateZone.D1, durationMin = 5),
-                    Block(4, "zone", zone = RateZone.D1, durationMin = 5),
-                    Block(1, "cool down", zone = RateZone.D0, durationMin = 10),
+                    Block(repeats = 1, literals.get(R.string.program_warm_up), zone = RateZone.D0, durationMin = 10),
+                    Block(4, literals.get(R.string.program_low_cadans), zone = RateZone.D1, durationMin = 5),
+                    Block(4, literals.get(R.string.program_stay_in_zone), zone = RateZone.D1, durationMin = 5),
+                    Block(1, literals.get(R.string.program_cool_down), zone = RateZone.D0, durationMin = 10),
                 )
-            )
+            ),
+
+            Program(
+                title = literals.get(R.string.program_title_recovery),
+                blocks = listOf(
+                    Block(repeats = 1, literals.get(R.string.program_warm_up), zone = RateZone.D0, durationMin = 10),
+                    Block(1, literals.get(R.string.program_stay_in_zone), zone = RateZone.D0, durationMin = 40),
+                    Block(1, literals.get(R.string.program_cool_down), zone = RateZone.D0, durationMin = 10),
+                )
+            ),
+
+            Program(
+                title = literals.get(R.string.program_title_tempo_endurance),
+                blocks = listOf(
+                    Block(repeats = 1, literals.get(R.string.program_warm_up), zone = RateZone.D0, durationMin = 15),
+                    Block(2, literals.get(R.string.program_stay_in_zone), zone = RateZone.D2, durationMin = 10),
+                    Block(2, literals.get(R.string.program_stay_in_zone), zone = RateZone.D1, durationMin = 5),
+                    Block(1, literals.get(R.string.program_cool_down), zone = RateZone.D0, durationMin = 15),
+                )
+            ),
+
+            Program(
+                title = literals.get(R.string.program_title_block),
+                blocks = listOf(
+                    Block(repeats = 1, literals.get(R.string.program_warm_up), zone = RateZone.D0, durationMin = 15),
+                    Block(3, literals.get(R.string.program_stay_in_zone), zone = RateZone.D3, durationMin = 5),
+                    Block(3, literals.get(R.string.program_stay_in_zone), zone = RateZone.D1, durationMin = 5),
+                    Block(1, literals.get(R.string.program_cool_down), zone = RateZone.D0, durationMin = 15),
+                )
+            ),
+
+            Program(
+                title = literals.get(R.string.program_title_sprint),
+                blocks = listOf(
+                    Block(repeats = 1, literals.get(R.string.program_warm_up), zone = RateZone.D0, durationMin = 30),
+                    Block(5, literals.get(R.string.program_cadans_high), zone = RateZone.D4, durationMin = 1),
+                    Block(5, literals.get(R.string.program_stay_in_zone), zone = RateZone.D1, durationMin = 2),
+                    Block(1, literals.get(R.string.program_cool_down), zone = RateZone.D0, durationMin = 15),
+                )
+            ),
+
+            Program(
+                title = literals.get(R.string.program_title_vo2max),
+                blocks = listOf(
+                    Block(repeats = 1, literals.get(R.string.program_warm_up), zone = RateZone.D0, durationMin = 15),
+                    Block(2, literals.get(R.string.program_low_cadans), zone = RateZone.D4, durationMin = 5),
+                    Block(2
+                        , literals.get(R.string.program_stay_in_zone), zone = RateZone.D1, durationMin = 10),
+                    Block(1, literals.get(R.string.program_cool_down), zone = RateZone.D0, durationMin = 15),
+                )
+            ),
 
         )
     }
