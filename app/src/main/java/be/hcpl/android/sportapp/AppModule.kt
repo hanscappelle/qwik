@@ -1,5 +1,6 @@
 package be.hcpl.android.sportapp
 
+import be.hcpl.android.sportapp.domain.repository.LocalProgramRepository
 import be.hcpl.android.sportapp.domain.storage.LocalStorage
 import be.hcpl.android.sportapp.ui.i18n.Literals
 import be.hcpl.android.sportapp.ui.view.InfoViewModel
@@ -21,4 +22,5 @@ val appModule = module {
 
     factoryOf(::Literals)
     factoryOf(::LocalStorage)
+    factoryOf(::LocalProgramRepository)
 }

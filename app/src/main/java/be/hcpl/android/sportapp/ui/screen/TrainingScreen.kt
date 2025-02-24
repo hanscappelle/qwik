@@ -49,50 +49,12 @@ fun TrainingScreen(
             ZonesInText(model.zonesUiModel, Modifier.padding(16.dp))
         }
 
-        // TODO add some examples here....
+        Body(text = stringResource(R.string.training_examples))
 
-        Body(text = "Enkele voorbeelden")
+        model.programs.forEach { program ->
+            ProgramView(program)
+        }
 
-        ProgramView(
-            ProgramUiModel(
-                program = Program(
-                    title = "Cadans-Training",
-                    blocks = listOf(
-                        Block(repeats = 1, "warm up", zone = RateZone.D0, durationMin = 10),
-                        Block(4, "high cadans 100-110 rpm", zone = RateZone.D2, durationMin = 5),
-                        Block(4, "lower cadans", zone = RateZone.D1, durationMin = 5),
-                        Block(1, "cool down", zone = RateZone.D0, durationMin = 10),
-                    )
-                )
-            )
-        )
-
-        ProgramView(
-            ProgramUiModel(
-                program = Program(
-                    title = "Duur-Training",
-                    blocks = listOf(
-                        Block(repeats = 1, "warm up", zone = RateZone.D0, durationMin = 10),
-                        Block(1, "volhouden", zone = RateZone.D1, durationMin = 100),
-                        Block(1, "cool down", zone = RateZone.D0, durationMin = 10),
-                    )
-                )
-            )
-        )
-
-        ProgramView(
-            ProgramUiModel(
-                program = Program(
-                    title = "Kracht-Training",
-                    blocks = listOf(
-                        Block(repeats = 1, "warm up", zone = RateZone.D0, durationMin = 10),
-                        Block(4, "low cadans 80-90 rpm", zone = RateZone.D1, durationMin = 5),
-                        Block(4, "zone", zone = RateZone.D1, durationMin = 5),
-                        Block(1, "cool down", zone = RateZone.D0, durationMin = 10),
-                    )
-                )
-            )
-        )
     }
 }
 
@@ -103,7 +65,19 @@ fun TrainingScreenPreview() {
         TrainingScreen(
             model = TrainingUiModel(
                 zonesUiModel = ZoneVisualUiModel(
-
+                ),
+                programs = listOf(
+                    ProgramUiModel(
+                        program = Program(
+                            title = "Kracht-Training",
+                            blocks = listOf(
+                                Block(repeats = 1, "warm up", zone = RateZone.D0, durationMin = 10),
+                                Block(4, "low cadans 80-90 rpm", zone = RateZone.D1, durationMin = 5),
+                                Block(4, "zone", zone = RateZone.D1, durationMin = 5),
+                                Block(1, "cool down", zone = RateZone.D0, durationMin = 10),
+                            )
+                        )
+                    )
                 )
             )
         )
