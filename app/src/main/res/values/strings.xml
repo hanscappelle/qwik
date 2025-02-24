@@ -69,7 +69,7 @@
     <string name="zones_external_info">Deze link via de website van mantel is ook interessant om door te nemen https://www.mantel.com/blog/trainingsschema-voor-fietsers</string>
     <string name="training_examples">Enkele voorbeelden van (fiets)trainingen op basis van hartslag zones. Hierboven staat welke hartslag bij die zones horen in uw geval.\n\nJe kan deze trainingen combineren, korter en langer maken. Als je meerdere trainingen per week inplant probeer dan voldoende af te wisselen tussen kracht en uithouding. En laat, zeker bij zwaardere trainingen, voldoende tijd tussen om te herstellen.</string>
     <string name="about_reference_header">Referenties</string>
-    <string name="about_reference_description1">Deze App is volledig vrij te gebruiken en ook de broncode is vrij beschikbaar.</string>
+    <string name="about_reference_description1">Deze App is volledig vrij te gebruiken en ook de broncode is vrij beschikbaar. Play store link is https://play.google.com/store/apps/details?id=be.hcpl.android.qwik en code is te vinden op github link https://github.com/hanscappelle/qwik .</string>
     <string name="about_reference_description2">Technisch is de app opgebouwd met JetPack Compose, Material3 en Koin (injectie van code). Link naar koin info: https://insert-koin.io/ . En een heel kleine library voor \'t vervangen van links in text waarvan code hier: https://github.com/Khudoyshukur/LinkifyTextCompose .</string>
     <string name="about_reference_description3">Bij een aantal van de tools staan bronvermeldingen of links naar webpagina\'s met meer info.</string>
     <string name="program_title_cadans">Cadans-Training</string>
