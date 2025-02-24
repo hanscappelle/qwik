@@ -72,4 +72,9 @@
     <string name="about_reference_description1">Deze App is volledig vrij te gebruiken en ook de broncode is vrij beschikbaar.</string>
     <string name="about_reference_description2">Technisch is de app opgebouwd met JetPack Compose, Material3 en Koin (injectie van code). Link naar koin info: https://insert-koin.io/ . En een heel kleine library voor \'t vervangen van links in text waarvan code hier: https://github.com/Khudoyshukur/LinkifyTextCompose .</string>
     <string name="about_reference_description3">Bij een aantal van de tools staan bronvermeldingen of links naar webpagina\'s met meer info.</string>
+    <string name="program_cadans_title">Cadans-Training</string>
+    <string name="program_warm_up">Warm Up</string>
+    <string name="program_cool_down">Cool Down</string>
+    <string name="program_cadans_high">Hoge cadans aanhouden, 100-110 rpm</string>
+    <string name="program_cadans_low">Lagere cadans, zone D1</string>
 </resources>

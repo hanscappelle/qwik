@@ -1,8 +1,10 @@
 package be.hcpl.android.sportapp.domain.repository
 
+import be.hcpl.android.sportapp.R
 import be.hcpl.android.sportapp.domain.model.Block
 import be.hcpl.android.sportapp.domain.model.Program
 import be.hcpl.android.sportapp.domain.model.RateZone
+import be.hcpl.android.sportapp.ui.i18n.Literals
 
 interface ProgramRepository {
 
@@ -11,20 +13,21 @@ interface ProgramRepository {
 
 }
 
-class LocalProgramRepository() : ProgramRepository {
+class LocalProgramRepository(
+    private val literals: Literals,
+) : ProgramRepository {
 
     override fun getAll(): List<Program> {
 
-        // TODO translations needed here & more programs
         return listOf(
 
             Program(
-                title = "Cadans-Training",
+                title = literals.get(R.string.program_cadans_title),
                 blocks = listOf(
-                    Block(repeats = 1, "warm up", zone = RateZone.D0, durationMin = 10),
-                    Block(4, "high cadans 100-110 rpm", zone = RateZone.D2, durationMin = 5),
-                    Block(4, "lower cadans", zone = RateZone.D1, durationMin = 5),
-                    Block(1, "cool down", zone = RateZone.D0, durationMin = 10),
+                    Block(repeats = 1, literals.get(R.string.program_warm_up), zone = RateZone.D0, durationMin = 10),
+                    Block(4, literals.get(R.string.program_cadans_high), zone = RateZone.D2, durationMin = 5),
+                    Block(4, literals.get(R.string.program_cadans_low), zone = RateZone.D1, durationMin = 5),
+                    Block(1, literals.get(R.string.program_cool_down), zone = RateZone.D0, durationMin = 10),
                 )
             ),
 
