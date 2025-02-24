@@ -59,7 +59,7 @@
     <string name="hardware_title4">Verder lezen</string>
     <string name="hardware_description4">Wie wil kan via de website van AS Adventure meer info vinden; https://www.asadventure.com/nl/expertise-tips/Activewear/hoe-kies-je-de-beste-hartslagmeter.html</string>
     <string name="about_header">Waarom deze App bestaat</string>
-    <string name="about_description1">Het doel van deze app is vooral te informeren. </string>
+    <string name="about_description1">Het doel van deze app is vooral te informeren. En zo hulp bieden bij het opstellen van een gezond maar effectief programma.</string>
     <string name="about_description2">Zelf gebruik ik het trainen op hartslag vooral voor fietsen, maar je kan het zeker doortrekken naar andere sporten. Hooguit zul je bij andere sporten sneller (of just niet zo snel) een hogere harstlag bekomen.</string>
     <string name="about_privacy_header">Over Privacy</string>
     <string name="about_privacy_description1">De app slaat enkel je zelf geteste en je berekende omslagpunt op en welke van de stappen je al doorlopen hebt. Dat laatste is te zien aan het vinkje op de kaarten in het begin van de app. We delen hiervan niets online.</string>
@@ -68,4 +68,8 @@
     <string name="training_zones">De verschillende zones aangepast aan uw gegevens zijn;</string>
     <string name="zones_external_info">Deze link via de website van mantel is ook interessant om door te nemen https://www.mantel.com/blog/trainingsschema-voor-fietsers</string>
     <string name="training_examples">Enkele voorbeelden van (fiets)trainingen op basis van hartslag zones. Hierboven staat welke hartslag bij die zones horen in uw geval.\n\nJe kan deze trainingen combineren, korter en langer maken. Als je meerdere trainingen per week inplant probeer dan voldoende af te wisselen tussen kracht en uithouding. En laat, zeker bij zwaardere trainingen, voldoende tijd tussen om te herstellen.</string>
+    <string name="about_reference_header">Referenties</string>
+    <string name="about_reference_description1">Deze App is volledig vrij te gebruiken en ook de broncode is vrij beschikbaar.</string>
+    <string name="about_reference_description2">Technisch is de app opgebouwd met JetPack Compose, Material3 en Koin (injectie van code). Link naar koin info: https://insert-koin.io/ . En een heel kleine library voor \'t vervangen van links in text waarvan code hier: https://github.com/Khudoyshukur/LinkifyTextCompose .</string>
+    <string name="about_reference_description3">Bij een aantal van de tools staan bronvermeldingen of links naar webpagina\'s met meer info.</string>
 </resources>

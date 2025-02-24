@@ -68,12 +68,29 @@ fun HeadLine(
 fun Body(
     text: String,
     modifier: Modifier = Modifier,
+    onUrlClicked: ((String) -> Unit)? = null,
 ) {
-    Text(
-        modifier = modifier,
-        text = text,
-        style = AppTypography.bodyLarge
-    )
+    if (onUrlClicked != null ){
+        // linkify is expected here
+        LinkifyText(
+            modifier = modifier,
+            content = LinkifyContent(
+                originalText = text,
+                spanStyle = SpanStyle(
+                    color = primaryLight,
+                    textDecoration = TextDecoration.Underline,
+                ),
+            ),
+            style = AppTypography.bodyLarge.copy(color = LocalContentColor.current),
+            onUrlClicked = onUrlClicked,
+        )
+    } else {
+        Text(
+            modifier = modifier,
+            text = text,
+            style = AppTypography.bodyLarge
+        )
+    }
 }
 
 @Composable

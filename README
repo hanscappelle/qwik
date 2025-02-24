@@ -6,16 +6,17 @@ Simple and free sport app with a focus on keeping it healthy.
 
 ### 0.1.0
 
-eerste release met minimal functionaliteit
+Eerste release met minimale functionaliteit
 
 - berekenen van maximale harstlag op basis van leeftijd (2 methods)
 - visualisatie van de harstlagzones op basis van input reken tool
+- voorstel van een aantal training programma's op basis van hartslag zone
 - links naar algemene informatie
 
 ## TODO
 
-- complete about information app
 - onderscheid man/vrouw maken?
+- vertalingen voorzien
 
 ## Bronnen
 
@@ -42,10 +43,10 @@ https://www.bicycling.com/nl/training/a28394698/trainen-op-hartslag/
 Alles over ontwikkelen van android apps met compose
 https://developer.android.com/compose
 
-Creating a theme for the app
+Over Theme maken in compose
 https://developer.android.com/codelabs/jetpack-compose-theming#0
 
-generated one with
+Met gebruik van deze kleurpalet tools
 https://material-foundation.github.io/material-theme-builder/
 https://colors.muz.li/
 

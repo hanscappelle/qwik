@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import be.hcpl.android.sportapp.R
 import be.hcpl.android.sportapp.ui.components.Body
 import be.hcpl.android.sportapp.ui.components.HeadLine
-import be.hcpl.android.sportapp.ui.components.InfoCard
 import be.hcpl.android.sportapp.ui.components.TitleBold
 import be.hcpl.android.sportapp.ui.theme.AppTheme
 
@@ -43,12 +42,11 @@ fun AboutAppScreen(
         ) {
             Text(text = stringResource(R.string.about_privacy_erase))
         }
-        //InfoCard(
-        //    title = stringResource(R.string.hardware_title4),
-        //    text = stringResource(R.string.hardware_description4),
-        //    onUrlClicked = onUrlClicked,
-        //)
 
+        TitleBold(text = stringResource(R.string.about_reference_header))
+        Body(text = stringResource(R.string.about_reference_description1), onUrlClicked = onUrlClicked)
+        Body(text = stringResource(R.string.about_reference_description2), onUrlClicked = onUrlClicked)
+        Body(text = stringResource(R.string.about_reference_description3), onUrlClicked = onUrlClicked)
     }
 }
 

@@ -54,7 +54,7 @@ dependencies {
     implementation(libs.koin.android)
 //    implementation(libs.compose.livedata)
 
-    implementation("io.github.khudoyshukur:linkify-text:1.0")
+    implementation(libs.linkify.text)
 
     // tools
     implementation(libs.androidx.ui.tooling.preview.android)
