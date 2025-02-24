@@ -1,6 +1,8 @@
 # What
 
-Simple and free sport app with a focus on keeping it healthy.
+Simple and free sport app with a focus on keeping it healthy. 
+Available in Google Play store https://play.google.com/store/apps/details?id=be.hcpl.android.qwik 
+and code can be found on github https://github.com/hanscappelle/qwik
 
 ## Versie
 
@@ -15,6 +17,7 @@ Eerste release met minimale functionaliteit
 
 ## TODO
 
+- provide translations (also of this readme)
 - onderscheid man/vrouw maken?
 - vertalingen voorzien
 
