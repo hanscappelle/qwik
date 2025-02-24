@@ -75,12 +75,12 @@
     <string name="program_title_cadans">Cadans-Training</string>
     <string name="program_warm_up">Warm Up</string>
     <string name="program_cool_down">Cool Down</string>
-    <string name="program_cadans_high">Hoge cadans aanhouden, 100-110 rpm</string>
+    <string name="program_cadans_high">Hoge cadans aanhouden, 100–110 rpm</string>
     <string name="program_cadans_low">Lagere cadans, zone D1</string>
     <string name="program_title_endurance">Duur-Training</string>
     <string name="program_title_power">Kracht-Training</string>
     <string name="program_endurance">Volhouden in zone</string>
-    <string name="program_low_cadans">Lage cadans 80-90 rpm</string>
+    <string name="program_low_cadans">Lage cadans 80–90 rpm</string>
     <string name="program_stay_in_zone">Blijf in zone</string>
     <string name="program_title_recovery">Herstel-Training</string>
     <string name="program_title_tempo_endurance">Tempo-Duur-Training</string>

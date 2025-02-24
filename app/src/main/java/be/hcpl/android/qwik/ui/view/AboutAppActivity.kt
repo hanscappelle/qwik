@@ -1,5 +1,6 @@
 package be.hcpl.android.qwik.ui.view
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -33,10 +34,11 @@ class AboutAppActivity : ComponentActivity() {
         }
     }
 
-    private fun navigateToUrl(url: String) {
-        startActivity(Intent(this, InfoActivity::class.java).apply {
-            putExtra(KEY_URL, url)
-        })
-    }
 
+}
+
+fun Activity.navigateToUrl(url: String) {
+    startActivity(Intent(this, InfoActivity::class.java).apply {
+        putExtra(KEY_URL, url)
+    })
 }

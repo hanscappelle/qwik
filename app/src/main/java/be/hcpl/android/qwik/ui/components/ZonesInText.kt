@@ -12,7 +12,6 @@ fun ZonesInText(
     model: ZoneVisualUiModel,
     modifier: Modifier = Modifier,
 ) {
-    // TODO optimize, calculated twice now
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
         var sum = 0f
         model.zones.forEachIndexed { index, zone ->

@@ -1,6 +1,7 @@
 package be.hcpl.android.qwik.ui.theme
 import androidx.compose.ui.graphics.Color
 
+// some fancy rainbow colours
 val customColor1 = Color(0xffffff4d)
 val customColor2 = Color(0xffffc14d)
 val customColor3 = Color(0xffea9a62)

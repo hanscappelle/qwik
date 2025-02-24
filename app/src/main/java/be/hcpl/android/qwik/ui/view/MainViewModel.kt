@@ -15,11 +15,12 @@ class MainViewModel(
     private val storage: LocalStorage,
 ) : ViewModel() {
 
+    // alternative approach is to use stateflow and pass viewModel to compose directly
     //private val _uiState = MutableStateFlow<UiState>(UiState(OverviewUiModel(emptyList())))
     //val uiState = _uiState.asStateFlow()
+
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState>
-        get() = _uiState
 
     val events: MutableLiveData<UiEvent> = MutableLiveData()
 

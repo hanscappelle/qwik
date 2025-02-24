@@ -18,7 +18,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //enableEdgeToEdge()
         viewModel.uiState.observe(this, Observer<UiState> { state -> onChangeObserved(state) })
         viewModel.events.observe(this, Observer<UiEvent> { event -> onEvent(event) })
     }

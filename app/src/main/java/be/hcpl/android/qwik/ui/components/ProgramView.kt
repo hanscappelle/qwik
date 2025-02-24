@@ -55,14 +55,11 @@ fun ProgramView(
                     color = secondaryLight,
                 )
             Row(
-                //horizontalArrangement = Arrangement.SpaceEvenly,
                 modifier = Modifier
-                    //.border(border = BorderStroke(1.dp, secondaryLight))
                     .fillMaxWidth()
             ) {
                 Text(
                     modifier = Modifier
-                        //.weight(1f)
                         .padding(horizontal = 8.dp),
                     text = "${block.repeats}x"
                 )
@@ -80,7 +77,6 @@ fun ProgramView(
                 )
                 Text(
                     modifier = Modifier
-                        //.weight(1f)
                         .padding(horizontal = 8.dp),
                     text = "${block.durationMin} min"
                 )

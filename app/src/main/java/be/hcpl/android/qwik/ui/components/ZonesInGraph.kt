@@ -20,7 +20,6 @@ fun ZonesInGraph(
     maxHeight: Int,
     modifier: Modifier = Modifier,
 ) {
-    // TODO optimize, calculated twice now
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
 
         // zones bpm indications

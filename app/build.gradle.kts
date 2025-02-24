@@ -5,12 +5,10 @@ plugins {
 }
 
 android {
-    //namespace = "be.hcpl.android.sportapp"
     namespace = "be.hcpl.android.qwik"
     compileSdk = 35
 
     defaultConfig {
-        //applicationId = "be.hcpl.android.sportapp"
         applicationId = "be.hcpl.android.qwik"
         minSdk = 26
         targetSdk = 35
@@ -54,7 +52,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.ui.text.google.fonts)
     implementation(libs.koin.android)
-//    implementation(libs.compose.livedata)
 
     implementation(libs.linkify.text)
 

@@ -67,3 +67,10 @@ linkify in text compose
 https://github.com/Khudoyshukur/LinkifyTextCompose
 => issue with dark mode because of ClickableText
 https://stackoverflow.com/questions/72897975/clickabletext-composable-font-color-not-adjusting-to-dark-mode
+
+## Dev Notes
+
+Requires v1 release key + apk package
+used package be.hcpl.android.qwik
+min target SDK 35
+feature graphic created with https://hotpot.ai/templates/google-play-feature-graphic

@@ -8,7 +8,7 @@ import be.hcpl.android.qwik.ui.i18n.Literals
 
 interface ProgramRepository {
 
-    // for now just have some hardcoded programs, TODO look into generation based on time and type?
+    // TODO look into generation based on time and type?
     fun getAll(): List<Program>
 
 }
