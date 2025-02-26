@@ -2,6 +2,7 @@ package be.hcpl.android.qwik.domain.model
 
 import be.hcpl.android.qwik.R
 
+// TODO move creation of these to repo
 enum class StepPosition(
     val labelId: Int,
     val descriptionId: Int,
