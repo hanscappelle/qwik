@@ -9,6 +9,10 @@ Source code can be found at: https://github.com/hanscappelle/qwik
 
 ## Version History
 
+### 0.1.1
+
+- app logo update
+
 ### 0.1.0
 
 First release with minimal required functionality
@@ -81,3 +85,5 @@ Requires v1 release key + apk package (not app bundle ready yet)
 used package be.hcpl.android.qwik on app store
 min target SDK 35
 feature graphic created with https://hotpot.ai/templates/google-play-feature-graphic
+syncing app logo's, using color FFC107 (yellow) and stroked background from asset generator
+https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=clipart&foreground.clipart=show_chart&foreground.space.trim=1&foreground.space.pad=0.25&foreColor=rgba(96%2C%20125%2C%20139%2C%200)&backColor=rgb(255%2C%20193%2C%207)&crop=1&backgroundShape=square&effects=score&name=ic_launcher
