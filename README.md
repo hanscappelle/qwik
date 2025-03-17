@@ -33,8 +33,8 @@ First release with minimal required functionality
 - show specific heart rates in programs (calculated values)
 - allow generation of programs based on: time, target, ...
 - provide some week based scheduling
-- add alerts
-- differentiate between programs for bicycles and running
+- add alerts from app as reminders for programs
+- differentiate between programs for bicycles and running (?)
 
 ## Sources
 

@@ -25,22 +25,14 @@ android {
         }
     }
     compileOptions {
-    //    sourceCompatibility = JavaVersion.VERSION_1_8
-    //    targetCompatibility = JavaVersion.VERSION_1_8
         sourceCompatibility = JavaVersion.VERSION_20
         targetCompatibility = JavaVersion.VERSION_20
     }
     kotlinOptions {
-        // > Inconsistent JVM-target compatibility detected for tasks 'compileDebugJavaWithJavac' (1.8) and 'compileDebugKotlin' (21).
-        //jvmTarget = "1.8"
         jvmTarget = "20"
     }
     buildFeatures {
         compose = true
-    }
-    composeOptions {
-        // only needed for kotlin < 2.0.0
-        //kotlinCompilerExtensionVersion = "1.5.15"
     }
 }
 
@@ -49,7 +41,6 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     implementation(libs.androidx.ui.text.google.fonts)
     implementation(libs.koin.android)
 
