@@ -8,10 +8,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import be.hcpl.android.qwik.domain.model.Block
@@ -71,13 +73,17 @@ fun ProgramView(
                 )
                 Text(
                     modifier = Modifier
-                        .weight(0.5f)
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = 8.dp)
+                    ,
+                    textAlign = TextAlign.Center,
                     text = "${block.zone}"
                 )
                 Text(
                     modifier = Modifier
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = 8.dp)
+                        .width(75.dp)
+                    ,
+                    textAlign = TextAlign.End,
                     text = "${block.durationMin} min"
                 )
             }
@@ -102,7 +108,7 @@ fun ProgramViewPreview() {
                         Block(repeats = 1, "warm up", zone = RateZone.D0, durationMin = 20),
                         Block(4, "fast", zone = RateZone.D2, durationMin = 5),
                         Block(4, "slow", zone = RateZone.D1, durationMin = 5),
-                        Block(1, "cool down", zone = RateZone.D0, durationMin = 20),
+                        Block(1, "cool down", zone = RateZone.D0, durationMin = 120),
                     )
                 )
             )

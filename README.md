@@ -12,6 +12,7 @@ Source code can be found at: https://github.com/hanscappelle/qwik
 ### 0.1.2
 
 - fix error in zone for power training
+- layout improvement programs
 
 ### 0.1.1
 
