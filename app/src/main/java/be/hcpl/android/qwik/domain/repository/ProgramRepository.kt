@@ -44,7 +44,7 @@ class LocalProgramRepository(
                 title = literals.get(R.string.program_title_power),
                 blocks = listOf(
                     Block(repeats = 1, literals.get(R.string.program_warm_up), zone = RateZone.D0, durationMin = 10),
-                    Block(4, literals.get(R.string.program_low_cadans), zone = RateZone.D1, durationMin = 5),
+                    Block(4, literals.get(R.string.program_low_cadans), zone = RateZone.D2, durationMin = 5),
                     Block(4, literals.get(R.string.program_stay_in_zone), zone = RateZone.D1, durationMin = 5),
                     Block(1, literals.get(R.string.program_cool_down), zone = RateZone.D0, durationMin = 10),
                 )

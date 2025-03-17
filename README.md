@@ -9,6 +9,10 @@ Source code can be found at: https://github.com/hanscappelle/qwik
 
 ## Version History
 
+### 0.1.2
+
+- fix error in zone for power training
+
 ### 0.1.1
 
 - app logo update
